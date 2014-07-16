@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>DED9635B-DC97-4DEE-9A5C-0FE43C61E96B</string>
+	<key>IDESourceControlProjectName</key>
+	<string>CrazyBalloons</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>3AAB3684-8447-4450-BE3D-5B8F22348368</key>
+		<string>file:///Users/peter/Documents/Programming/CrazyBalloons/</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>CrazyBalloons.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>3AAB3684-8447-4450-BE3D-5B8F22348368</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>file:///Users/peter/Documents/Programming/CrazyBalloons/</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>3AAB3684-8447-4450-BE3D-5B8F22348368</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>3AAB3684-8447-4450-BE3D-5B8F22348368</string>
+			<key>IDESourceControlWCCName</key>
+			<string>CrazyBalloonsFirst100Words</string>
+		</dict>
+	</array>
+</dict>
+</plist>

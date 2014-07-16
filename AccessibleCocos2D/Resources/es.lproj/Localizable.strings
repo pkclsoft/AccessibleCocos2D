@@ -1,0 +1,9 @@
+/*
+ Localizable.strings
+ AccessibleCocos2D
+ 
+ Copyright (c) 2014 PKCLsoft. All rights reserved.
+ */
+
+"TEST_EN" = "Hello";
+"TEST_ES" = "Hola";

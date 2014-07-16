@@ -1,0 +1,271 @@
+/* 
+  Localizable.strings
+  DollarUp
+
+  Created by Peter Easdown on 8/10/13.
+  Copyright (c) 2013 PKCLsoft. All rights reserved.
+*/
+
+
+"LEVEL0NAME" = "Identifying notes and coins.";
+"LEVEL1NAME" = "What is one more %$? (Visual)";
+"LEVEL2NAME" = "What is one more %$? (Auditory)";
+"LEVEL3NAME" = "How much money do you have?";
+"LEVEL4NAME" = "Handing over an amount of money.";
+"LEVEL5NAME" = "Paying for items.";
+"LEVEL6NAME" = "Do you have enough money?";
+
+"ALLOWHIGHER" = "Allow higher levels before mastery of lower levels.";
+"SHOWSCORES" = "Show score during play.";
+"SHOWPRICES" = "Show prices on screen.";
+"CONTINUELESSONS" = "Continue lessons until all questions are correct.";
+
+"ROSTER" = "Class Roster";
+"NEWSTUDENTNAMEPROMPT" = "Your name";
+
+/* title on prompt when checking that a student is to be removed */
+"Remove student data" = "Remove the data for this student";
+
+/* generic prompt */
+"Are you sure?" = "Are you sure?";
+
+/* Cancel button */
+"Cancel" = "Cancel";
+
+"OK" = "OK";
+
+/* Done button */
+"Done" = "Done";
+
+"Yes" = "Yes";
+
+"No" = "No";ll
+
+"DEFAULTSTUDENTNAME" = "Student";
+
+"DUPLICATESTUDENT" = "Student names must be unique!";
+"MUSTHAVEATLEAST1DENOMINATION" = "You must have at least one denomination enabled!";
+"PREFERENCESTITLE" = "Profile";
+"LESSONELECTIONTITLE" = "Lesson Selection";
+"SHOWDEMOPROMPT" = "Show short introduction to \"Next Dollar up\" before each lesson";
+"SHOWTHISDEMOPROMPT" = "Show this introducton before each lesson.";
+"DEMOINTROTEXT" = "Dollar Up uses the 'Next Dollar Up' method to help teach the use of money.  Please watch this short introduction to see how it works.";
+"TAPTOCOUNTHINT" = "You can tap on notes and coins as you count them.  Try it, they sparkle!";
+"BADOPTIONCOMBO" = "The highest amount must be larger than the smallest enabled denomination.  Please enable more denominations or increase the highest amount.";
+
+"WELLDONEENDING" = "Awesome! Now you can play a game of Balloon Pop or Coin Catch!";
+"TRYAGAINENDING" = "Great work, you can try again now, or select another lesson";
+"NONOTEDROPZONESLEFT" = "There's no room left for more notes. Please clear your answer and try again.  Perhaps a different combination of notes will help.";
+"EDITINGDEFAULTSTUDENT" = "You are editing the default student profile.  Any changes you make to the default student will not affect any other students, however any new students that you create will inherit their settings from the default student.";
+
+"REPORTTITLE" = "Lesson Results";
+
+"ENABLED" = "ENABLED";
+"DISABLED" = "DISABLED";
+
+"MASTERED" = "MASTERED";
+"LEARNING" = "LEARNING";
+
+"REWARDTITLE" = "Reward Level";
+"NOREWARD" = "NONE";
+"AFTER5" = "AFTER 5";
+"AFTER10" = "AFTER 10";
+
+"MOREOPTIONS" = "More Options";
+"WRITTENPRICESNUMBERONLY" = "When showing prices, only show the amount.";
+"SHOWBUTTONLABELS" = "Show button labels below buttons.";
+"SPEAKUPONSELECTION" = "Say the amount when selecting money where appropriate.";
+"TAPTOSELECT" = "Use Tap Gesture to select money instead of dragging.";
+"SLOWGAMESPEED" = "Slow down reward games.";
+"BACKGROUNDSELECTION" = "Tap on a background to use throughout Dollar Up.";
+"defaultBG" = "Default";
+"woodBG" = "Wooden Floor";
+"iceBG" = "Ice Rink";
+"paperBG" = "Paper";
+"colourBG" = "Coloured";
+
+"playbutton.png" = "Start a Lesson";
+"optionsbutton.png" = "Settings";
+"aboutbutton.png" = "About Dollar Up";
+"emailreportbutton.png" = "Credits";
+"editstudentbutton.png" = "Edit";
+"EDITDEFAULTSTUDENT" = "Edit Default Student";
+"addstudentbutton.png" = "Add";
+"removestudentbutton.png" = "Remove";
+"backarrowbutton.png" = "Back";
+"lesson0button.png" = "Recognising\nMoney";
+"lesson1button.png" = "Basic Practice\n(Visual)";
+"lesson2button.png" = "Basic Practice\n(Audio)";
+"lesson3button.png" = "How much money?";
+"lesson4button.png" = "Handing over money";
+"lesson5button.png" = "Shopping Basics";
+"lesson6button.png" = "Do you have enough?";
+"startbutton.png" = "Start Lesson";
+"restartbutton.png" = "Restart the lesson";
+"gameselectionbutton.png" = "Lesson Selection";
+"reportbutton.png" = "Reports";
+"balloonsgamebutton.png" = "Balloon Pop";
+"coindropgamebutton.png" = "Coin Drop";
+"lockedbadge.png" = "Profiles  Locked";
+"unlockedbadge.png" = "Profiles unlocked";
+"musicnote_sel.png" = "Music On";
+"musicnote.png" = "Music Off";
+"grocerieslistbutton.png" = "Grocery List";
+"addimagebutton.png" = "Add Item";
+"resetgroceriesbutton.png" = "Factory Reset\nGroceries";
+
+"DENOMINATIONTITLE" = "Denominations";
+"1DOLLAR" = "%#1";
+"2DOLLAR" = "%#2";
+"5DOLLAR" = "%#5";
+"10DOLLAR" = "%#10";
+"20DOLLAR" = "%#20";
+
+"10DOLLARMIN" = "%#10";
+"50DOLLARMAX" = "%#50";
+
+"CLOSE" = "Close";
+"QUIT" = "Quit";
+"REPORT" = "Report";
+"PLAY" = "PLAY";
+"RESETMASTERY" = "Reset Mastery";
+"CLEARANSWER" = "Clear";
+"YESANSWER" = "YES";
+"NOANSWER" = "NO";
+
+"HIGHESTDOLLAR" = "Highest Amount: %#";
+
+"au" = "Australia";
+"us" = "United States";
+"uk" = "United Kingdom";
+"ca" = "Canada";
+"eu" = "European Union";
+"nz" = "New Zealand";
+
+"WHATIS1MOREDOLLAR1" = "What is one more %$?";
+"WHATIS1MOREDOLLAR" = "How much do you pay?";
+"ONEMOREDOLLARIS" = "One more %$ is...";
+"TAPTOSTART" = "Tap OK to start or BACK to go back...";
+"TAPTOPLAYAGAIN" = "Tap OK to practice this skill again, or BACK to quit...";
+"GAMEPAUSED" = "Game Paused";
+"GAMEOVER" = "Game Over";
+"HOWMUCHMONEY" = "How much money do you have?";
+"YOUHAVEXDOLLARS" = "You have %@ %$";
+"YOUNEEDXDOLLARS" = ", but you need %@ %$";
+"DROPCOINSHERE" = "Drop your\ncoins here";
+"GIVEMEXDOLLARS" = "Give me %@ %$ please.";
+
+"DOLLAR" = "dollar";
+"POUND" = "pound";
+"EURO" = "euro";
+"CENTS" = "cents";
+"PENCE" = "pence";
+
+"CREDITSTITLE" = "Dollar Up!";
+"CREDITSFREESOUND" = "Some sounds and effects in this app were provided the following freesound.org contributors:";
+"CREDITSSOUND1" = "@soughtaftersounds, @cameronmusic, @toby";
+"CREDITSKEVINMACLEOD" = "Game music: \"Electrodoodle\" and \"Move Forward\" by Kevin MacLeod (incompetech.com)";
+"CREDITSCANADA" = "Coin image© 2014 Royal Canadian Mint — All Rights Reserved /\nImage de piéce© 2014 Monnaie royal canadienne — Tous droits réservés";
+
+"CREDITSRATE" = "Rate on iTunes";
+
+"CREDITSMESSAGE" = "Do you have a suggestion, a request, or would you like to report an issue?\nDollar Up has been developed to help you.  PKCLsoft is only too happy\nto improve Dollar Up based on your feedback, so please don’t hesitate\nto contact us via email.";
+
+"FEEDBACKSUBJECT" = "Feedback for Dollar Up";
+"FEEDBACKTEXT" = "Hi there,\n\nI bought Dollar Up and I'd like to make a suggestions to improve the app\n\n\n";
+
+/* Report contents */
+"NOREPORTDATA" = "<html><body><p><p><p><p><h1><span lang=EN-US style='color:#565FB2'>No report data available.</span></h1></body></html>";
+
+/* non lesson email title */
+"reporttitle" = "<b>Lesson results for: %@ on %@</b>";
+"gameleveltitle" = "Skill: %@";
+"gamedatetitle" = "Played on: %@";
+"questioncounttitle" = "Number of questions: %d";
+"questionscorrecttitle" = "Number correct: %d";
+"skillhasbeenmastered" = "Mastery of this skill has been achieved";
+"stilldevelopingskill" = "Still developing this skill";
+"perfectgamecount" = "Number of perfect games so far: %d";
+"studentnametitle" = "Student name: %@";
+"nonLessonSubject" = "Lesson Results Report for Dollar up";
+
+
+"amountColumnTitle" = "Amount";
+"amountInPurseColumnTitle" = "Purse/Wallet Contents";
+"correctAnswerColumnTitle" = "Correct Answer";
+"answerGivenColumnTitle" = "Answer Given";
+"attemptsColumnTitle" = "Attempts";
+"oneDollarCountColumnTitle" = "1 %$";
+"twoDollarCountColumnTitle" = "2 %$s";
+"fiveDollarCountColumnTitle" = "5 %$s";
+"tenDollarCountColumnTitle" = "10 %$s";
+"twentyDollarCountColumnTitle" = "20 %$s";
+
+
+"CHALLENGETITLE" = "Please answer this question to proceed.";
+"CHALLENGEPROMPT" = "What is";
+"CHALLENGESUFFIX" = "?";
+"CHALLENGEPLACEHOLDER" = "Enter your answer here";
+
+
+"pleaseatend" = "please";
+"pleaseatstart" = "Please";
+"pound" = "pound";
+"pounds" = "pounds";
+"poundand" = "pound and";
+"poundsand" = "pounds and";
+"onemorepoundis" = "One more pound is";
+"pence" = "pence";
+"dollar" = "dollar";
+"dollars" = "dollars";
+"dollarand" = "dollar and";
+"dollarsand" = "dollars and";
+"onemoredollaris" = "One more dollar is";
+"cents" = "cents";
+"euro" = "euro";
+"euros" = "euros";
+"euroand" = "euro and";
+"eurosand" = "euros and";
+"onemoreeurois" = "One more euro is";
+"atotalof" = "A total of";
+"thatcomesto" = "That comes to";
+"thats" = "Thats";
+"thatwillbe" = "That will be";
+"giveme" = "Give me";
+"plus" = "plus";
+"youhave" = "You have";
+"youneed" = "You need";
+"equals" = "equals";
+"butyouhave" = "but you have";
+"butyouneed" = "but you need";
+"doyouhaveenoughmoney" = "Do you have enough money?";
+"howmuchmoneydoyouhave" = "How much money do you have?";
+"youcouldhaveusedthis" = "You could have used this...";
+"welldone" = "Well done!";
+"brilliant" = "Brilliant!";
+"congratulations" = "Congratulations!";
+
+
+"kgtNone" = "None";
+"kgtDrinks" = "Drinks";
+"kgtDairy" = "Dairy";
+"kgtBread" = "Bread";
+"kgtSnacks" = "Snacks";
+"kgtMisc" = "Miscellaneous";
+"kgtFruit" = "Fruit";
+"kgtVegetables" = "Vegetables";
+"kgtHousehold" = "Household";
+"kgtCereal" = "Cereal";
+
+"ENTERNEWAMOUNT" = "Please enter a new amount:";
+"OKBUTTON" = "OK";
+"CANCELBUTTON" = "Cancel";
+
+"REMOVEGROCERYITEMTITLE" = "Remove this item?";
+"REMOVEGROCERYITEMMESSAGE" = "Are you sure?";
+
+"GroceryItemViewController.tip100" = "Please enter a simple name of the item.";
+"GroceryItemViewController.tip101" = "Please enter the typical price of the item.  Just enter the %$ and %cents value without the decimal point.";
+
+"PINCHTORETURN" = "Pinch to go\nback";
+
