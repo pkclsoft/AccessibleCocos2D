@@ -67,7 +67,7 @@
 - (NSString*) languageForText {
     if ([self respondsToSelector:@selector(label)] == YES) {
         id label = (id<CCLabelProtocol>)[(id)self label];
-        
+
         if (([label conformsToProtocol:@protocol(CCLabelProtocol)] == YES) &&
             ([label conformsToProtocol:@protocol(AccessibleLabel)] == YES)) {
             id<CCLabelProtocol, AccessibleLabel> speechEnabledLabel = (id<CCLabelProtocol, AccessibleLabel>)label;

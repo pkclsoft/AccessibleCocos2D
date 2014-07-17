@@ -69,6 +69,10 @@
     }
 }
 
+- (void) highlightElement:(UIAccessibilityElement *)element {
+    UIAccessibilityPostNotification(UIAccessibilityLayoutChangedNotification, element);
+}
+
 #pragma mark - CCSwitchableNode Wrapper
 
 // Adds a single node to the layer for inclusion in the current set of nodes under control.
@@ -133,6 +137,25 @@
     UIAccessibilityPostNotification(UIAccessibilityLayoutChangedNotification, nil);
 }
 
+- (void) highlightNode:(id<CCSwitchableNode>)node {
+    AccessibleSwitchableNode *elementToHighlight = nil;
+    
+    for (AccessibleSwitchableNode *element in elements) {
+        if ([element respondsToSelector:@selector(node)] == YES) {
+            if (element.node == node) {
+                elementToHighlight = element;
+            }
+        }
+    }
+    
+    if (elementToHighlight != nil) {
+        [self highlightElement:elementToHighlight];
+    }
+}
+
++ (AccessibleGLView*) accessibilityView {
+    return (AccessibleGLView*)[CCDirector sharedDirector].view;
+}
 
 #pragma mark - UIAccessibilityContainer
 

@@ -9,6 +9,7 @@
 #import "AccessibleSwitchableNode.h"
 #import <UIKit/UIAccessibility.h>
 #import <UIKit/UIAccessibilityElement.h>
+#import "AppDelegate.h"
 
 @implementation AccessibleSwitchableNode {
     
@@ -16,7 +17,7 @@
     
 }
 
-- (id) initWithNode:(id<CCSwitchableNode>)node inContainer:(id)container {
+- (id) initWithNode:(CCNode<CCSwitchableNode>*)node inContainer:(id)container {
     self = [super initWithAccessibilityContainer:container];
     
     if (self != nil) {
@@ -28,7 +29,7 @@
     return self;
 }
 
-+ (AccessibleSwitchableNode*) accessibleSwitchableWithNode:(id<CCSwitchableNode>)node inContainer:(id)container {
++ (AccessibleSwitchableNode*) accessibleSwitchableWithNode:(CCNode<CCSwitchableNode>*)node inContainer:(id)container {
     return [[[AccessibleSwitchableNode alloc] initWithNode:node inContainer:container] autorelease];
 }
 
@@ -46,30 +47,114 @@
     return UIAccessibilityTraitButton;
 }
 
-- (CGPoint) correctedActivationPoint {
-    // This code is a quick hack to translate the position from Cocos2d in one specific orientation
-    // to UIKit.  To be finessed.
-    //
-    CGPoint uiPoint = [[CCDirector sharedDirector] convertToUI:[self.node switchableNodePosition]];
-    uiPoint.x = [CocosUtil screenWidth] - uiPoint.x;
+- (CGAffineTransform) transformForCurrentOrientation {
+    return CGAffineTransformMakeRotation([self currentOrientationAngle]);
+}
+
+- (float) currentOrientationAngle {
+    UIInterfaceOrientation orientation = [[UIApplication sharedApplication] statusBarOrientation];
     
-    return uiPoint;
+    switch (orientation) {
+            
+        case UIInterfaceOrientationLandscapeLeft:
+            return CC_DEGREES_TO_RADIANS(90);
+            
+        case UIInterfaceOrientationLandscapeRight:
+            return CC_DEGREES_TO_RADIANS(-90);
+            
+        case UIInterfaceOrientationPortraitUpsideDown:
+            return CC_DEGREES_TO_RADIANS(180);
+            
+        case UIInterfaceOrientationPortrait:
+        default:
+            return CC_DEGREES_TO_RADIANS(0);
+    }
+    
+}
+
+- (CGPoint) correctedActivationPoint {
+    // This code is a hack to translate the position from Cocos2d to UIKit such that the activation
+    // point is at the center of the node in UIKit's view.  I'm sure there's a better way, but
+    // all of the transforms I've tried only work with one device orientation or another.  This code
+    // appears to work correctly for a landscape app capable of rotating to either landscape
+    // orientation.
+    //
+    CGPoint pos = [self.node switchableNodePosition];
+    pos = [self.node.parent convertToWorldSpace:pos];
+    
+    if ([[UIApplication sharedApplication] statusBarOrientation] != UIDeviceOrientationLandscapeLeft) {
+        pos = [[CCDirector sharedDirector] convertToUI:pos];
+        pos.x = [CocosUtil screenWidth] - pos.x;
+    }
+    
+    pos = CGPointApplyAffineTransform(pos, [self transformForCurrentOrientation]);
+    
+    // Now this is really ugly, and shows that I still don't understand something.  The resulting position
+    // from the transform gives me the correct coordinate but off the side of the screen in one dimension.
+    // These two lines move the coordinate back onto the screen at the correct location.
+    //
+    pos.x = abs(pos.x);
+    pos.y = abs(pos.y);
+    
+    return pos;
 }
 
 - (CGPoint) accessibilityActivationPoint {
-    CGPoint uiPoint = [self correctedActivationPoint];
-    
-    return CGPointMake(uiPoint.y, uiPoint.x);
+    return [self correctedActivationPoint];
 }
 
 - (CGRect) accessibilityFrame {
-    CGPoint uiPoint = [self correctedActivationPoint];
+    CGPoint pos = [self correctedActivationPoint];
     
-    return CGRectMake(uiPoint.y-([self.node switchableNodeSize].height/2.0f),
-               uiPoint.x-([self.node switchableNodeSize].width/2.0f),
-               [self.node switchableNodeSize].height,
-               [self.node switchableNodeSize].width);
+    CGRect rect;
+    
+    // Now if the device is in landscape orientation, then swap the height and width as appropriate.  I'm sure
+    // there's a better way though.
+    //
+    if (UIDeviceOrientationIsLandscape([[UIApplication sharedApplication] statusBarOrientation]) == YES) {
+        rect = CGRectMake(pos.x-([self.node switchableNodeSize].height/2.0f),
+                          pos.y-([self.node switchableNodeSize].width/2.0f),
+                          [self.node switchableNodeSize].height,
+                          [self.node switchableNodeSize].width);
+    } else {
+        rect = CGRectMake(pos.x-([self.node switchableNodeSize].width/2.0f),
+                             pos.y-([self.node switchableNodeSize].height/2.0f),
+                             [self.node switchableNodeSize].width,
+                             [self.node switchableNodeSize].height);
+    }
+    
+    return rect;
+}
 
+CGPathRef createPathRotatedAroundBoundingBoxCenter(CGPathRef path, CGFloat radians) {
+    CGRect bounds = CGPathGetBoundingBox(path); // might want to use CGPathGetPathBoundingBox
+    CGPoint center = CGPointMake(CGRectGetMidX(bounds), CGRectGetMidY(bounds));
+    CGAffineTransform transform = CGAffineTransformIdentity;
+    transform = CGAffineTransformTranslate(transform, center.x, center.y);
+    transform = CGAffineTransformRotate(transform, radians);
+    transform = CGAffineTransformTranslate(transform, -center.x, -center.y);
+    return CGPathCreateCopyByTransformingPath(path, &transform);
+}
+
+- (UIBezierPath*) accessibilityPath {
+    if ([self.node isKindOfClass:[CCNode class]]) {
+        CCNode *ccNode = (CCNode*)self.node;
+        
+        if (ccNode.rotation == 0.0f) {
+            return nil;
+        } else {
+            CGRect rect = [self accessibilityFrame];
+            UIBezierPath *result = [UIBezierPath bezierPathWithRoundedRect:rect byRoundingCorners:UIRectCornerAllCorners cornerRadii:CGSizeMake(5.0, 5.0)];
+            
+            CGPathRef path = createPathRotatedAroundBoundingBoxCenter(result.CGPath, CC_DEGREES_TO_RADIANS(ccNode.rotation));
+            result = [UIBezierPath bezierPathWithCGPath:path];
+            CGPathRelease(path);
+            
+            return result;
+        }
+    } else {
+        return nil;
+    }
 }
 
 // Called when the object is first added, but has no effect on pronunciation.

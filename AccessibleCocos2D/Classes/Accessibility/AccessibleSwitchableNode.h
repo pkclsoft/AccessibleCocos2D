@@ -12,10 +12,10 @@
 
 @interface AccessibleSwitchableNode : UIAccessibilityElement <UIAccessibilityIdentification>
 
-- (id) initWithNode:(id<CCSwitchableNode>)node inContainer:(id)container;
+- (id) initWithNode:(CCNode<CCSwitchableNode>*)node inContainer:(id)container;
 
-+ (AccessibleSwitchableNode*) accessibleSwitchableWithNode:(id<CCSwitchableNode>)node inContainer:(id)container;
++ (AccessibleSwitchableNode*) accessibleSwitchableWithNode:(CCNode<CCSwitchableNode>*)node inContainer:(id)container;
 
-@property (nonatomic, retain) id<CCSwitchableNode> node;
+@property (nonatomic, retain) CCNode<CCSwitchableNode> *node;
 
 @end

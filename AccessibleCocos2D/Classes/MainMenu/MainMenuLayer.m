@@ -13,6 +13,7 @@
 @implementation MainMenuLayer {
     
     float menuY;
+    float menuX;
     BOOL fileDownloaded;
 }
 
@@ -93,10 +94,11 @@ static const MenuItemDefinition MENU_ITEMS[] = {
     button.tag = definition.tag;
     buttonLabel.languageForText = definition.language;
     
-    CGPoint pos = cpv([CocosUtil screenCentre].x, menuY);
+    CGPoint pos = cpv(menuX, menuY);
     button.position = pos;
     
     menuY -= (buttonLabel.contentSize.height/2.0f + VERTICAL_SPACE + buttonLabel.contentSize.height/2.0f) * BUTTON_SCALE;
+    menuX += 50.0;
 
     return button;
 }
@@ -110,6 +112,7 @@ static const MenuItemDefinition MENU_ITEMS[] = {
         [self addChild:title z:kZTitle tag:kTitle];
         
         menuY = MENU_ITEM_TOP;
+        menuX = [CocosUtil screenCentre].x;
         
         fileDownloaded = NO;
 
