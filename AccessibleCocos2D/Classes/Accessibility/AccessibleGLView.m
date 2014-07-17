@@ -15,7 +15,6 @@
     
 }
 
-
 - (id) initWithFrame:(CGRect)frame pixelFormat:(NSString*)format depthFormat:(GLuint)depth preserveBackbuffer:(BOOL)retained sharegroup:(EAGLSharegroup*)sharegroup multiSampling:(BOOL)sampling numberOfSamples:(unsigned int)nSamples {
     self = [super initWithFrame:frame pixelFormat:format depthFormat:depth preserveBackbuffer:retained sharegroup:sharegroup multiSampling:sampling numberOfSamples:nSamples];
     
@@ -35,6 +34,21 @@
 }
 */
 
+- (AccessibleSwitchableNode*) elementForNode:(CCNode<CCSwitchableNode>*)node {
+    AccessibleSwitchableNode *result = nil;
+    
+    for (AccessibleSwitchableNode *element in elements) {
+        if ([element respondsToSelector:@selector(node)] == YES) {
+            if (element.node == node) {
+                result = element;
+            }
+        }
+    }
+
+    return result;
+}
+
+
 - (void) addElement:(UIAccessibilityElement*)element {
     [self addElement:element partOfBatch:NO];
 }
@@ -45,8 +59,10 @@
             NSLog(@"Adding NULL element!");
         }
         
-        NSLog(@"Adding element: %@ with language: %@", element, element.accessibilityLanguage);
-        [elements addObject:element];
+        if ([elements containsObject:element] == NO) {
+            NSLog(@"Adding element: %@ with language: %@", element, element.accessibilityLanguage);
+            [elements addObject:element];
+        }
     }
     
     if (batching == NO) {
@@ -82,9 +98,11 @@
 }
 
 - (void) addNode:(id<CCSwitchableNode>)node partOfBatch:(BOOL)batching {
-    AccessibleSwitchableNode *element = [AccessibleSwitchableNode accessibleSwitchableWithNode:node inContainer:self];
-    
-    [self addElement:element partOfBatch:batching];
+    if ([self elementForNode:node] == nil) {
+        AccessibleSwitchableNode *element = [AccessibleSwitchableNode accessibleSwitchableWithNode:node inContainer:self];
+        
+        [self addElement:element partOfBatch:batching];
+    }
 }
 
 // Adds the specified array of nodes to the layer for inclusion in the current set of nodes under control.
@@ -98,7 +116,7 @@
         }
     }];
     
-    UIAccessibilityPostNotification(UIAccessibilityLayoutChangedNotification, nil);
+    UIAccessibilityPostNotification(UIAccessibilityScreenChangedNotification, nil);
 }
 
 // Removes the specified node from the current set of nodes under control.
@@ -108,16 +126,8 @@
 }
 
 - (void) removeNode:(id<CCSwitchableNode>)node partOfBatch:(BOOL)batching {
-    AccessibleSwitchableNode *elementToRemove= nil;
+    AccessibleSwitchableNode *elementToRemove = [self elementForNode:node];
     
-    for (AccessibleSwitchableNode *element in elements) {
-        if ([element respondsToSelector:@selector(node)] == YES) {
-            if (element.node == node) {
-                elementToRemove = element;
-            }
-        }
-    }
-
     if (elementToRemove != nil) {
         [self removeElement:elementToRemove partOfBatch:batching];
     }
@@ -134,19 +144,11 @@
         }
     }
     
-    UIAccessibilityPostNotification(UIAccessibilityLayoutChangedNotification, nil);
+    UIAccessibilityPostNotification(UIAccessibilityScreenChangedNotification, nil);
 }
 
 - (void) highlightNode:(id<CCSwitchableNode>)node {
-    AccessibleSwitchableNode *elementToHighlight = nil;
-    
-    for (AccessibleSwitchableNode *element in elements) {
-        if ([element respondsToSelector:@selector(node)] == YES) {
-            if (element.node == node) {
-                elementToHighlight = element;
-            }
-        }
-    }
+    AccessibleSwitchableNode *elementToHighlight = [self elementForNode:node];
     
     if (elementToHighlight != nil) {
         [self highlightElement:elementToHighlight];
