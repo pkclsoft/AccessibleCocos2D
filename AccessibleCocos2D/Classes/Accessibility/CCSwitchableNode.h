@@ -50,4 +50,8 @@
 //
 - (void) setSwitchHighlighted:(BOOL)highlighted;
 
+- (BOOL) isAdjustable;
+
+- (BOOL) isStatic;
+
 @end

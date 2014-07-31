@@ -43,6 +43,10 @@
 //
 - (void) highlightElement:(UIAccessibilityElement*)element;
 
+// Triggers the accessibility API to reload the elements it has been given.
+//
+- (void) refreshAccessibilityElements;
+
 // Returns the singleton instance of this class created at startup and assigned to the CCDirector.
 //
 + (AccessibleGLView*) accessibilityView;

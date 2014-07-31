@@ -13,8 +13,12 @@
 
 // Import any categories created that add CCSwitchableNode methods.
 //
+#import "CCNode+CCAccessible.h"
 #import "CCMenuItem+CCSwitchableNode.h"
 #import "UITableViewCell+CCSwitchableNode.h"
+//#import "AccessibleCCControlSlider.h"
+#import "CCLabelBMFont+CCAccessible.h"
+#import "CCLabelTTF+CCAccessible.h"
 
 @interface AccessibleCocos2D
 

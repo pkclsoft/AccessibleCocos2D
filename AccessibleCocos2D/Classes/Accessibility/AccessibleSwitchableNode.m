@@ -44,7 +44,13 @@
 }
 
 - (UIAccessibilityTraits) accessibilityTraits {
-    return UIAccessibilityTraitButton;
+    if (([self.node respondsToSelector:@selector(isAdjustable)] == YES) && ([self.node isAdjustable] == YES)) {
+        return UIAccessibilityTraitAdjustable;
+    } else if (([self.node respondsToSelector:@selector(isStatic)] == YES) && ([self.node isStatic] == YES)) {
+        return UIAccessibilityTraitStaticText;
+    } else {
+        return UIAccessibilityTraitButton;
+    }
 }
 
 - (CGAffineTransform) transformForCurrentOrientation {
@@ -136,6 +142,9 @@ CGPathRef createPathRotatedAroundBoundingBoxCenter(CGPathRef path, CGFloat radia
     return CGPathCreateCopyByTransformingPath(path, &transform);
 }
 
+#define PATH_ADDITIONAL_SCALE (0.075)
+#define PATH_SCALE (1.0 + PATH_ADDITIONAL_SCALE)
+
 - (UIBezierPath*) accessibilityPath {
     if ([self.node isKindOfClass:[CCNode class]]) {
         CCNode *ccNode = (CCNode*)self.node;
@@ -144,6 +153,9 @@ CGPathRef createPathRotatedAroundBoundingBoxCenter(CGPathRef path, CGFloat radia
             return nil;
         } else {
             CGRect rect = [self accessibilityFrame];
+            rect.size = CGSizeApplyAffineTransform(rect.size, CGAffineTransformMakeScale(PATH_SCALE, PATH_SCALE));
+            rect.origin.x = rect.origin.x - (rect.size.width * PATH_ADDITIONAL_SCALE * 0.5);
+            rect.origin.y = rect.origin.y - (rect.size.height * PATH_ADDITIONAL_SCALE * 0.5);
             UIBezierPath *result = [UIBezierPath bezierPathWithRoundedRect:rect byRoundingCorners:UIRectCornerAllCorners cornerRadii:CGSizeMake(5.0, 5.0)];
             
             CGPathRef path = createPathRotatedAroundBoundingBoxCenter(result.CGPath, CC_DEGREES_TO_RADIANS(ccNode.rotation));
@@ -199,6 +211,18 @@ CGPathRef createPathRotatedAroundBoundingBoxCenter(CGPathRef path, CGFloat radia
 
 - (BOOL) isAccessibilityElement {
     return [self.node isSwitchSelectable];
+}
+
+- (void) accessibilityIncrement {
+    if (([self.node respondsToSelector:@selector(isAdjustable)] == YES) && ([self.node isAdjustable] == YES)) {
+        [self.node accessibilityIncrement];
+    }
+}
+
+- (void) accessibilityDecrement {
+    if (([self.node respondsToSelector:@selector(isAdjustable)] == YES) && ([self.node isAdjustable] == YES)) {
+        [self.node accessibilityDecrement];
+    }
 }
 
 @end

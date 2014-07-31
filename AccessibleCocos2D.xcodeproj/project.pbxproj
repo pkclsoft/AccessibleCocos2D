@@ -149,6 +149,9 @@
 		D05F84BC1830B64F009B7A91 /* cpSpatialIndex.c in Sources */ = {isa = PBXBuildFile; fileRef = D05F849B1830B64F009B7A91 /* cpSpatialIndex.c */; };
 		D05F84BD1830B64F009B7A91 /* cpSweep1D.c in Sources */ = {isa = PBXBuildFile; fileRef = D05F849C1830B64F009B7A91 /* cpSweep1D.c */; };
 		D05F84BE1830B64F009B7A91 /* cpVect.c in Sources */ = {isa = PBXBuildFile; fileRef = D05F849D1830B64F009B7A91 /* cpVect.c */; };
+		D067297C19892001005148AD /* CCNode+CCAccessible.m in Sources */ = {isa = PBXBuildFile; fileRef = D067297519892001005148AD /* CCNode+CCAccessible.m */; };
+		D067297D19892001005148AD /* CCLabelBMFont+CCAccessible.m in Sources */ = {isa = PBXBuildFile; fileRef = D067297719892001005148AD /* CCLabelBMFont+CCAccessible.m */; };
+		D067297E19892001005148AD /* CCLabelTTF+CCAccessible.m in Sources */ = {isa = PBXBuildFile; fileRef = D067297919892001005148AD /* CCLabelTTF+CCAccessible.m */; };
 		D075E9B818CD5B4B0062F61E /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D075E9B618CD5B4B0062F61E /* Default-568h@2x.png */; };
 		D075E9BC18CD5BE60062F61E /* Default@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = D075E9BA18CD5BE60062F61E /* Default@2x~iphone.png */; };
 		D075E9BF18CD5C2B0062F61E /* Default~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = D075E9BE18CD5C2B0062F61E /* Default~iphone.png */; };
@@ -556,6 +559,14 @@
 		D05F849D1830B64F009B7A91 /* cpVect.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = cpVect.c; sourceTree = "<group>"; };
 		D05F849E1830B64F009B7A91 /* prime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = prime.h; sourceTree = "<group>"; };
 		D05F84EC18311406009B7A91 /* VERSION.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = VERSION.txt; path = include/chipmunk/VERSION.txt; sourceTree = "<group>"; };
+		D067297419892001005148AD /* CCNode+CCAccessible.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "CCNode+CCAccessible.h"; path = "Classes/Accessibility/CCNode+CCAccessible.h"; sourceTree = "<group>"; };
+		D067297519892001005148AD /* CCNode+CCAccessible.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "CCNode+CCAccessible.m"; path = "Classes/Accessibility/CCNode+CCAccessible.m"; sourceTree = "<group>"; };
+		D067297619892001005148AD /* CCLabelBMFont+CCAccessible.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "CCLabelBMFont+CCAccessible.h"; path = "Classes/Accessibility/CCLabelBMFont+CCAccessible.h"; sourceTree = "<group>"; };
+		D067297719892001005148AD /* CCLabelBMFont+CCAccessible.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "CCLabelBMFont+CCAccessible.m"; path = "Classes/Accessibility/CCLabelBMFont+CCAccessible.m"; sourceTree = "<group>"; };
+		D067297819892001005148AD /* CCLabelTTF+CCAccessible.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "CCLabelTTF+CCAccessible.h"; path = "Classes/Accessibility/CCLabelTTF+CCAccessible.h"; sourceTree = "<group>"; };
+		D067297919892001005148AD /* CCLabelTTF+CCAccessible.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "CCLabelTTF+CCAccessible.m"; path = "Classes/Accessibility/CCLabelTTF+CCAccessible.m"; sourceTree = "<group>"; };
+		D067297A19892001005148AD /* AccessibleCCControlSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AccessibleCCControlSlider.h; path = Classes/Accessibility/AccessibleCCControlSlider.h; sourceTree = "<group>"; };
+		D067297B19892001005148AD /* AccessibleCCControlSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AccessibleCCControlSlider.m; path = Classes/Accessibility/AccessibleCCControlSlider.m; sourceTree = "<group>"; };
 		D075E9B618CD5B4B0062F61E /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		D075E9B718CD5B4B0062F61E /* Default-568h@2x.xcf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Default-568h@2x.xcf"; sourceTree = "<group>"; };
 		D075E9BA18CD5BE60062F61E /* Default@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x~iphone.png"; sourceTree = "<group>"; };
@@ -1224,6 +1235,14 @@
 		D0F408E01945DC7E00737AC8 /* Accessibility */ = {
 			isa = PBXGroup;
 			children = (
+				D067297419892001005148AD /* CCNode+CCAccessible.h */,
+				D067297519892001005148AD /* CCNode+CCAccessible.m */,
+				D067297619892001005148AD /* CCLabelBMFont+CCAccessible.h */,
+				D067297719892001005148AD /* CCLabelBMFont+CCAccessible.m */,
+				D067297819892001005148AD /* CCLabelTTF+CCAccessible.h */,
+				D067297919892001005148AD /* CCLabelTTF+CCAccessible.m */,
+				D067297A19892001005148AD /* AccessibleCCControlSlider.h */,
+				D067297B19892001005148AD /* AccessibleCCControlSlider.m */,
 				D0F408E11945DCD300737AC8 /* AccessibleCocos2D.h */,
 				D0F408EA19484AA700737AC8 /* CCSwitchableNode.h */,
 				D09740F619755C4E00F1F7EA /* AccessibleLabel.h */,
@@ -1528,6 +1547,7 @@
 				D0291B4518013F3800BE2ACB /* CCRemoveFromParentAction.m in Sources */,
 				D0291B0E18013F3800BE2ACB /* CCProgressTimer.m in Sources */,
 				D0291B0718013F3800BE2ACB /* CCParallaxNode.m in Sources */,
+				D067297E19892001005148AD /* CCLabelTTF+CCAccessible.m in Sources */,
 				D0291AF718013F3800BE2ACB /* CCDirector.m in Sources */,
 				D0291B1C18013F3800BE2ACB /* CCTileMapAtlas.m in Sources */,
 				D0291B2A18013F3800BE2ACB /* CCDirectorMac.m in Sources */,
@@ -1584,6 +1604,7 @@
 				D0B9502E18035E3600BB7236 /* MainMenuLayer.m in Sources */,
 				D09740EA1974D84300F1F7EA /* CCCustomSpriteBatchNode.m in Sources */,
 				D0291B0318013F3800BE2ACB /* CCMenuItem.m in Sources */,
+				D067297C19892001005148AD /* CCNode+CCAccessible.m in Sources */,
 				D0291AEE18013F3800BE2ACB /* CCActionProgressTimer.m in Sources */,
 				D05F84B81830B64F009B7A91 /* cpSpaceComponent.c in Sources */,
 				D0291AEB18013F3800BE2ACB /* CCActionInterval.m in Sources */,
@@ -1601,6 +1622,7 @@
 				D0291B0B18013F3800BE2ACB /* CCParticleSystemQuad.m in Sources */,
 				D05F84B91830B64F009B7A91 /* cpSpaceHash.c in Sources */,
 				D0291B0618013F3800BE2ACB /* CCNode.m in Sources */,
+				D067297D19892001005148AD /* CCLabelBMFont+CCAccessible.m in Sources */,
 				D0291B3C18013F3800BE2ACB /* CDOpenALSupport.m in Sources */,
 				D05F84B01830B64F009B7A91 /* cpBB.c in Sources */,
 				D0291B0D18013F3800BE2ACB /* CCPhysicsSprite.mm in Sources */,

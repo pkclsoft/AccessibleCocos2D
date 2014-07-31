@@ -10,27 +10,11 @@
 
 @implementation CCMenuItem (CCSwitchableNode)
 
-// Should return the size of the node on screen.
-//
-- (CGSize) switchableNodeSize {
-    CGSize result = self.contentSize;
-    result.width *= self.scale;
-    result.height *= self.scale;
-    
-    return result;
-}
-
-// Should return the position (center) of the node in screen coordinates.
-//
-- (CGPoint) switchableNodePosition {
-    return self.position;
-}
-
 // Should return YES if the node is currently able to accept taps by the user.
 //
 - (BOOL) isSwitchSelectable {
     BOOL result = (self.isEnabled == YES) && (self.visible == YES);
-
+    
     return result;
 }
 

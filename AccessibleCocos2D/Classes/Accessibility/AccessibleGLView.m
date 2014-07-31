@@ -116,7 +116,7 @@
         }
     }];
     
-    UIAccessibilityPostNotification(UIAccessibilityScreenChangedNotification, nil);
+    [self refreshAccessibilityElements];
 }
 
 // Removes the specified node from the current set of nodes under control.
@@ -144,7 +144,7 @@
         }
     }
     
-    UIAccessibilityPostNotification(UIAccessibilityScreenChangedNotification, nil);
+    [self refreshAccessibilityElements];
 }
 
 - (void) highlightNode:(id<CCSwitchableNode>)node {
@@ -153,6 +153,12 @@
     if (elementToHighlight != nil) {
         [self highlightElement:elementToHighlight];
     }
+}
+
+// Triggers the accessibility API to reload the elements it has been given.
+//
+- (void) refreshAccessibilityElements {
+    UIAccessibilityPostNotification(UIAccessibilityScreenChangedNotification, nil);
 }
 
 + (AccessibleGLView*) accessibilityView {

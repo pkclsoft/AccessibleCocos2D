@@ -12,4 +12,8 @@
 
 @property (nonatomic, retain) NSString *languageForText;
 
+@property (nonatomic, retain) NSString *textForSpeaking;
+
+- (BOOL) isStatic;
+
 @end
