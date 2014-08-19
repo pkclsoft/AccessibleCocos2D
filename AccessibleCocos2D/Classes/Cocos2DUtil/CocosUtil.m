@@ -8,7 +8,6 @@
 
 #import "CocosUtil.h"
 #import "math.h"
-#import "CCCustomSpriteBatchNode.h"
 
 @interface CocosUtil (private)
 
@@ -51,11 +50,28 @@ static bool initialized_ = NO;
     }
 }
 
++ (BOOL) isiOS8orLater {
+    NSString *reqSysVer = @"8.0";
+    NSString *currSysVer = [[UIDevice currentDevice] systemVersion];
+    
+    if ([currSysVer compare:reqSysVer options:NSNumericSearch] != NSOrderedAscending)
+    {
+        return YES;
+    } else {
+        return NO;
+    }
+}
+
 + (void) initStaticConstants {
     // Swap the width and height for landscape mode
     //
-    cocosutil_screenRect_.size.height = [[UIScreen mainScreen] bounds].size.width;
-    cocosutil_screenRect_.size.width = [[UIScreen mainScreen] bounds].size.height;
+    if ([CocosUtil isiOS8orLater] == YES) {
+        cocosutil_screenRect_.size.width = [[UIScreen mainScreen] bounds].size.width;
+        cocosutil_screenRect_.size.height = [[UIScreen mainScreen] bounds].size.height;
+    } else {
+        cocosutil_screenRect_.size.height = [[UIScreen mainScreen] bounds].size.width;
+        cocosutil_screenRect_.size.width = [[UIScreen mainScreen] bounds].size.height;
+    }
     
     cocosutil_screenCentre_ = CGPointMake(cocosutil_screenRect_.size.width / 2.0f, cocosutil_screenRect_.size.height / 2.0f);
 }
@@ -429,89 +445,6 @@ static CGPoint cocosutil_screenCentre_;
 	[sprite setVisible:originalVisibility];
 	[rt setPosition:position];
 	return rt;
-}
-
-
-static NSMutableDictionary *batchMap = nil;
-
-+ (CCSpriteBatchNode*) batchNodeForSheet:(NSString*)spriteSheetName {
-    if (batchMap == nil) {
-        return nil;
-    } else {
-        return (CCSpriteBatchNode*)[batchMap objectForKey:spriteSheetName];
-    }
-}
-
-+ (void) addBatchNode:(CCSpriteBatchNode*)newBatchNode forSheet:(NSString*)spriteSheetName {
-    if (batchMap == nil) {
-        batchMap = [[NSMutableDictionary dictionaryWithCapacity:1] retain];
-    }
-    
-    [batchMap setObject:newBatchNode forKey:spriteSheetName];
-}
-
-+ (void) removeBatchNodeForSheet:(NSString*)spriteSheetName {
-    [batchMap removeObjectForKey:spriteSheetName];
-}
-
-+ (CCSpriteBatchNode*) addBatchNodeWithName:(NSString*)spriteSheetName {
-    return [CocosUtil addBatchNodeWithName:spriteSheetName custom:NO];
-}
-
-+ (CCSpriteBatchNode*) addBatchNodeWithName:(NSString*)spriteSheetName custom:(BOOL)custom {
-    return [CocosUtil addBatchNodeWithName:spriteSheetName custom:custom imageExtension:@"png"];
-}
-
-+ (CCSpriteBatchNode*) addBatchNodeWithName:(NSString*)spriteSheetName custom:(BOOL)custom imageExtension:(NSString*)imageExtension {
-    CCSpriteBatchNode *sheet = [CocosUtil batchNodeForSheet:spriteSheetName];
-    
-    if (sheet == nil) {
-        NSString *path = [[CCFileUtils sharedFileUtils] fullPathFromRelativePath:spriteSheetName];
-        
-        if ([[NSFileManager defaultManager] fileExistsAtPath:path] == NO) {
-            // See if it exists in the user documents folder.
-            NSFileManager *fileManager = [NSFileManager defaultManager];
-            NSArray *urls = [fileManager URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask];
-            
-            if ([urls count] > 0) {
-                NSURL *userDocumentsURL = [urls objectAtIndex:0];
-                NSURL *plistfilepath = [userDocumentsURL URLByAppendingPathComponent:spriteSheetName];
-                path = [plistfilepath path];
-            }
-        }
-        
-        [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:path];
-
-		NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:path];
-        
-		NSString *texturePath = nil;
-		NSDictionary *metadataDict = [dict objectForKey:@"metadata"];
-		if( metadataDict )
-			// try to read  texture file name from meta data
-			texturePath = [metadataDict objectForKey:@"textureFileName"];
-        
-        
-		if( texturePath )
-		{
-			// build texture path relative to plist file
-			NSString *textureBase = [path stringByDeletingLastPathComponent];
-			texturePath = [textureBase stringByAppendingPathComponent:texturePath];
-		} else {
-			// build texture path by replacing file extension
-			texturePath = [path stringByDeletingPathExtension];
-			texturePath = [texturePath stringByAppendingPathExtension:@"png"];
-		}
-                
-        if (custom == NO) {
-            sheet = [CCSpriteBatchNode batchNodeWithFile:texturePath capacity:24];
-        } else {
-            sheet = [CCCustomSpriteBatchNode batchNodeWithFile:texturePath capacity:24];
-        }
-        
-        [CocosUtil addBatchNode:sheet forSheet:spriteSheetName];
-    }
-
-    return sheet;
 }
 
 // Converts an angle in the world where 0 is north in a clockwise direction to a world

@@ -90,10 +90,15 @@
     
     if ([[UIApplication sharedApplication] statusBarOrientation] != UIDeviceOrientationLandscapeLeft) {
         pos = [[CCDirector sharedDirector] convertToUI:pos];
-        pos.x = [CocosUtil screenWidth] - pos.x;
+        
+        if ([CocosUtil isiOS8orLater] == NO) {
+            pos.x = [CocosUtil screenWidth] - pos.x;
+        }
     }
     
-    pos = CGPointApplyAffineTransform(pos, [self transformForCurrentOrientation]);
+    if ([CocosUtil isiOS8orLater] == NO) {
+        pos = CGPointApplyAffineTransform(pos, [self transformForCurrentOrientation]);
+    }
     
     // Now this is really ugly, and shows that I still don't understand something.  The resulting position
     // from the transform gives me the correct coordinate but off the side of the screen in one dimension.
@@ -117,7 +122,7 @@
     // Now if the device is in landscape orientation, then swap the height and width as appropriate.  I'm sure
     // there's a better way though.
     //
-    if (UIDeviceOrientationIsLandscape([[UIApplication sharedApplication] statusBarOrientation]) == YES) {
+    if (([CocosUtil isiOS8orLater] == NO) && (UIDeviceOrientationIsLandscape([[UIApplication sharedApplication] statusBarOrientation]) == YES)) {
         rect = CGRectMake(pos.x-([self.node switchableNodeSize].height/2.0f),
                           pos.y-([self.node switchableNodeSize].width/2.0f),
                           [self.node switchableNodeSize].height,
@@ -172,28 +177,28 @@ CGPathRef createPathRotatedAroundBoundingBoxCenter(CGPathRef path, CGFloat radia
 // Called when the object is first added, but has no effect on pronunciation.
 //
 - (NSString*) accessibilityLanguage {
-    NSLog(@"accessibilityLanguage: %@", [self.node languageForText]);
+//    NSLog(@"accessibilityLanguage: %@", [self.node languageForText]);
     return [self.node languageForText];
 }
 
 // Never called unless on the simulator with the inspector active.
 //
 - (void) accessibilityElementDidBecomeFocused {
-    NSLog(@"accessibilityElementDidBecomeFocused: %@", self.accessibilityLabel);
+//    NSLog(@"accessibilityElementDidBecomeFocused: %@", self.accessibilityLabel);
     isFocused_Local = YES;
 }
 
 // Never called unless on the simulator with the inspector active.
 //
 - (void) accessibilityElementDidLoseFocus {
-    NSLog(@"accessibilityElementDidLoseFocus: %@", self.accessibilityLabel);
+//    NSLog(@"accessibilityElementDidLoseFocus: %@", self.accessibilityLabel);
     isFocused_Local = NO;
 }
 
 // Never called unless on the simulator with the inspector active.
 //
 - (BOOL) accessibilityElementIsFocused {
-    NSLog(@"accessibilityElementIsFocused: %@", self.accessibilityLabel);
+//    NSLog(@"accessibilityElementIsFocused: %@", self.accessibilityLabel);
     return isFocused_Local;
 }
 

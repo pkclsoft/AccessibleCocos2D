@@ -1,10 +1,9 @@
 //
 //  MainMenuLayer.h
-//  AccessibleCocos2D
 //
 //  Created by Peter Easdown on 8/10/13.
-//  Copyright 2014 PKCLsoft. All rights reserved.
 //
+//  This is a very simple screen with a label and two text buttons that are accessible.
 
 #import <Foundation/Foundation.h>
 

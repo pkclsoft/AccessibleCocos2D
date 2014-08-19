@@ -66,7 +66,11 @@
 //
 + (BOOL) isiOS6orLater;
 
-+ (CCSprite*) spriteWithOverlaidImages:(UIImage*)inputImage 
+// Returns YES if the os is iOS6 or later.
+//
++ (BOOL) isiOS8orLater;
+
++ (CCSprite*) spriteWithOverlaidImages:(UIImage*)inputImage
                                overlay:(UIImage*)overlay 
                            overlayRect:(CGRect)overlayRect
                                centred:(BOOL)centred;
@@ -93,13 +97,6 @@ typedef void (^NodeCompletionBlock)(CCNode *sprite);
 +(CCRenderTexture*) createStroke: (CCLabelTTF*) label   size:(float)size   color:(ccColor3B)cor;
 
 +(CCRenderTexture*) createStrokeForSprite:(CCSprite*)sprite  size:(float)size  color:(ccColor3B)cor;
-
-+ (CCSpriteBatchNode*) batchNodeForSheet:(NSString*)spriteSheetName;
-+ (void) addBatchNode:(CCSpriteBatchNode*)batchNode forSheet:(NSString*)spriteSheetName;
-+ (CCSpriteBatchNode*) addBatchNodeWithName:(NSString*)spriteSheetName;
-+ (CCSpriteBatchNode*) addBatchNodeWithName:(NSString*)spriteSheetName custom:(BOOL)custom;
-+ (CCSpriteBatchNode*) addBatchNodeWithName:(NSString*)spriteSheetName custom:(BOOL)custom imageExtension:(NSString*)imageExtension;
-+ (void) removeBatchNodeForSheet:(NSString*)spriteSheetName;
 
 + (float) angleFromDegrees:(float)deg;
 

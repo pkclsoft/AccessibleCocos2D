@@ -15,10 +15,6 @@
 #import "cocos2d-extensions.h"
 #import "chipmunk.h"
 
-#import "CCLayer+Util.h"
-#import "CCNode+Util.h"
-#import "LabelButtonMenuItem.h"
-
 #import "CocosUtil.h"
 
 #import "AccessibleCocos2D.h"

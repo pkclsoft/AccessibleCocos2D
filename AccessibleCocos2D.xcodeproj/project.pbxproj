@@ -156,16 +156,12 @@
 		D075E9BC18CD5BE60062F61E /* Default@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = D075E9BA18CD5BE60062F61E /* Default@2x~iphone.png */; };
 		D075E9BF18CD5C2B0062F61E /* Default~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = D075E9BE18CD5C2B0062F61E /* Default~iphone.png */; };
 		D075E9C118CD72430062F61E /* Icon-60@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D075E9C018CD72430062F61E /* Icon-60@2x.png */; };
-		D09740EA1974D84300F1F7EA /* CCCustomSpriteBatchNode.m in Sources */ = {isa = PBXBuildFile; fileRef = D09740E91974D84300F1F7EA /* CCCustomSpriteBatchNode.m */; };
 		D09740F019751CBF00F1F7EA /* AccessibleCCLabelTTF.m in Sources */ = {isa = PBXBuildFile; fileRef = D09740EF19751CBF00F1F7EA /* AccessibleCCLabelTTF.m */; };
-		D09740F2197556A200F1F7EA /* CCLayer+Util.m in Sources */ = {isa = PBXBuildFile; fileRef = D0D555121813A7C1003F4A91 /* CCLayer+Util.m */; };
-		D09740F5197559EA00F1F7EA /* CCNode+Util.m in Sources */ = {isa = PBXBuildFile; fileRef = D09740F4197559EA00F1F7EA /* CCNode+Util.m */; };
 		D0AD5BE0183F761100472B61 /* Icon-Small-50@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D0AD5BDD183F761100472B61 /* Icon-Small-50@2x.png */; };
 		D0AD5BE1183F761100472B61 /* Icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D0AD5BDE183F761100472B61 /* Icon-72@2x.png */; };
 		D0AD5BE5183F76FA00472B61 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D0AD5BE3183F76FA00472B61 /* Default@2x.png */; };
 		D0AD5BE6183F76FA00472B61 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = D0AD5BE4183F76FA00472B61 /* Default.png */; };
 		D0B94F871801422600BB7236 /* CocosUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = D0B94F3A1801422600BB7236 /* CocosUtil.m */; };
-		D0B94F8A1801422600BB7236 /* LabelButtonMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D0B94F401801422600BB7236 /* LabelButtonMenuItem.m */; };
 		D0B9502E18035E3600BB7236 /* MainMenuLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = D0B9502D18035E3600BB7236 /* MainMenuLayer.m */; };
 		D0BE5144180D18F700E1B87E /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0BE5143180D18F700E1B87E /* MessageUI.framework */; };
 		D0BE51CA1810100100E1B87E /* Icon-76@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D0BE51C81810100100E1B87E /* Icon-76@2x.png */; };
@@ -181,8 +177,6 @@
 		D0EC28D118C7025D00BFE9F2 /* Default~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = D0EC28D018C7025D00BFE9F2 /* Default~ipad.png */; };
 		D0F408DE1945DAA000737AC8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D0291B8818013FBF00BE2ACB /* AppDelegate.m */; };
 		D0F408ED19488C5300737AC8 /* CCMenuItem+CCSwitchableNode.m in Sources */ = {isa = PBXBuildFile; fileRef = D0F408EC19488C5300737AC8 /* CCMenuItem+CCSwitchableNode.m */; };
-		D0F408F0194A9DEE00737AC8 /* UITableViewCell+CCSwitchableNode.m in Sources */ = {isa = PBXBuildFile; fileRef = D0F408EF194A9DEE00737AC8 /* UITableViewCell+CCSwitchableNode.m */; };
-		D0F408F3194ED7F700737AC8 /* SwitchableindexPath.m in Sources */ = {isa = PBXBuildFile; fileRef = D0F408F2194ED7F700737AC8 /* SwitchableindexPath.m */; };
 		D0F476CA18013D890089460E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0F476C918013D890089460E /* QuartzCore.framework */; };
 		D0F476CC18013D890089460E /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0F476CB18013D890089460E /* OpenGLES.framework */; };
 		D0F476CE18013D890089460E /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0F476CD18013D890089460E /* OpenAL.framework */; };
@@ -574,12 +568,8 @@
 		D075E9BE18CD5C2B0062F61E /* Default~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default~iphone.png"; sourceTree = "<group>"; };
 		D075E9C018CD72430062F61E /* Icon-60@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-60@2x.png"; path = "Resources/Icon/Icon-60@2x.png"; sourceTree = "<group>"; };
 		D080653A189130FD0009427D /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
-		D09740E81974D84300F1F7EA /* CCCustomSpriteBatchNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCCustomSpriteBatchNode.h; sourceTree = "<group>"; };
-		D09740E91974D84300F1F7EA /* CCCustomSpriteBatchNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCCustomSpriteBatchNode.m; sourceTree = "<group>"; };
 		D09740EE19751CBF00F1F7EA /* AccessibleCCLabelTTF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AccessibleCCLabelTTF.h; path = Classes/Cocos2DUtil/AccessibleCCLabelTTF.h; sourceTree = "<group>"; };
 		D09740EF19751CBF00F1F7EA /* AccessibleCCLabelTTF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AccessibleCCLabelTTF.m; path = Classes/Cocos2DUtil/AccessibleCCLabelTTF.m; sourceTree = "<group>"; };
-		D09740F3197559EA00F1F7EA /* CCNode+Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CCNode+Util.h"; sourceTree = "<group>"; };
-		D09740F4197559EA00F1F7EA /* CCNode+Util.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CCNode+Util.m"; sourceTree = "<group>"; };
 		D09740F619755C4E00F1F7EA /* AccessibleLabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AccessibleLabel.h; path = Classes/Accessibility/AccessibleLabel.h; sourceTree = "<group>"; };
 		D0AD5BDD183F761100472B61 /* Icon-Small-50@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Small-50@2x.png"; path = "Resources/Icon/Icon-Small-50@2x.png"; sourceTree = "<group>"; };
 		D0AD5BDE183F761100472B61 /* Icon-72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-72@2x.png"; path = "Resources/Icon/Icon-72@2x.png"; sourceTree = "<group>"; };
@@ -590,8 +580,6 @@
 		D0B5742218DA7D8400A40FAF /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D0B94F391801422600BB7236 /* CocosUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CocosUtil.h; sourceTree = "<group>"; };
 		D0B94F3A1801422600BB7236 /* CocosUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CocosUtil.m; sourceTree = "<group>"; };
-		D0B94F3F1801422600BB7236 /* LabelButtonMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LabelButtonMenuItem.h; sourceTree = "<group>"; };
-		D0B94F401801422600BB7236 /* LabelButtonMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LabelButtonMenuItem.m; sourceTree = "<group>"; };
 		D0B9502C18035E3600BB7236 /* MainMenuLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainMenuLayer.h; path = Classes/MainMenu/MainMenuLayer.h; sourceTree = "<group>"; };
 		D0B9502D18035E3600BB7236 /* MainMenuLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainMenuLayer.m; path = Classes/MainMenu/MainMenuLayer.m; sourceTree = "<group>"; };
 		D0BE5143180D18F700E1B87E /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
@@ -605,8 +593,6 @@
 		D0BE51D71810115600E1B87E /* Default-land-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-land-ipad.png"; sourceTree = "<group>"; };
 		D0BE51D81810115600E1B87E /* Default-land-ipad.xcf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Default-land-ipad.xcf"; sourceTree = "<group>"; };
 		D0BE51DB181011D300E1B87E /* Default-land-ipad@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-land-ipad@2x.png"; sourceTree = "<group>"; };
-		D0D555111813A7C1003F4A91 /* CCLayer+Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CCLayer+Util.h"; sourceTree = "<group>"; };
-		D0D555121813A7C1003F4A91 /* CCLayer+Util.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CCLayer+Util.m"; sourceTree = "<group>"; };
 		D0EC289A18C069CC00BFE9F2 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		D0EC28CC18C7021C00BFE9F2 /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape~ipad.png"; sourceTree = "<group>"; };
 		D0EC28D018C7025D00BFE9F2 /* Default~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default~ipad.png"; sourceTree = "<group>"; };
@@ -614,10 +600,6 @@
 		D0F408EA19484AA700737AC8 /* CCSwitchableNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CCSwitchableNode.h; path = Classes/Accessibility/CCSwitchableNode.h; sourceTree = "<group>"; };
 		D0F408EB19488C5300737AC8 /* CCMenuItem+CCSwitchableNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "CCMenuItem+CCSwitchableNode.h"; path = "Classes/Accessibility/CCMenuItem+CCSwitchableNode.h"; sourceTree = "<group>"; };
 		D0F408EC19488C5300737AC8 /* CCMenuItem+CCSwitchableNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "CCMenuItem+CCSwitchableNode.m"; path = "Classes/Accessibility/CCMenuItem+CCSwitchableNode.m"; sourceTree = "<group>"; };
-		D0F408EE194A9DEE00737AC8 /* UITableViewCell+CCSwitchableNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UITableViewCell+CCSwitchableNode.h"; path = "Classes/Accessibility/UITableViewCell+CCSwitchableNode.h"; sourceTree = "<group>"; };
-		D0F408EF194A9DEE00737AC8 /* UITableViewCell+CCSwitchableNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UITableViewCell+CCSwitchableNode.m"; path = "Classes/Accessibility/UITableViewCell+CCSwitchableNode.m"; sourceTree = "<group>"; };
-		D0F408F1194ED7CA00737AC8 /* SwitchableindexPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SwitchableindexPath.h; path = Classes/Accessibility/SwitchableindexPath.h; sourceTree = "<group>"; };
-		D0F408F2194ED7F700737AC8 /* SwitchableindexPath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SwitchableindexPath.m; path = Classes/Accessibility/SwitchableindexPath.m; sourceTree = "<group>"; };
 		D0F476C618013D890089460E /* AccessibleCocos2D.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AccessibleCocos2D.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0F476C918013D890089460E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		D0F476CB18013D890089460E /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -1165,16 +1147,8 @@
 		D0B94EF51801422600BB7236 /* Cocos2DUtil */ = {
 			isa = PBXGroup;
 			children = (
-				D09740F3197559EA00F1F7EA /* CCNode+Util.h */,
-				D09740F4197559EA00F1F7EA /* CCNode+Util.m */,
-				D09740E81974D84300F1F7EA /* CCCustomSpriteBatchNode.h */,
-				D09740E91974D84300F1F7EA /* CCCustomSpriteBatchNode.m */,
 				D0B94F391801422600BB7236 /* CocosUtil.h */,
 				D0B94F3A1801422600BB7236 /* CocosUtil.m */,
-				D0B94F3F1801422600BB7236 /* LabelButtonMenuItem.h */,
-				D0B94F401801422600BB7236 /* LabelButtonMenuItem.m */,
-				D0D555111813A7C1003F4A91 /* CCLayer+Util.h */,
-				D0D555121813A7C1003F4A91 /* CCLayer+Util.m */,
 			);
 			name = Cocos2DUtil;
 			path = Classes/Cocos2DUtil;
@@ -1235,29 +1209,25 @@
 		D0F408E01945DC7E00737AC8 /* Accessibility */ = {
 			isa = PBXGroup;
 			children = (
+				D0F408E11945DCD300737AC8 /* AccessibleCocos2D.h */,
+				D0F408EA19484AA700737AC8 /* CCSwitchableNode.h */,
+				D01357A519701293000B6774 /* AccessibleGLView.h */,
+				D01357A619701293000B6774 /* AccessibleGLView.m */,
+				D01357A819702424000B6774 /* AccessibleSwitchableNode.h */,
+				D01357A919702424000B6774 /* AccessibleSwitchableNode.m */,
 				D067297419892001005148AD /* CCNode+CCAccessible.h */,
 				D067297519892001005148AD /* CCNode+CCAccessible.m */,
+				D09740F619755C4E00F1F7EA /* AccessibleLabel.h */,
 				D067297619892001005148AD /* CCLabelBMFont+CCAccessible.h */,
 				D067297719892001005148AD /* CCLabelBMFont+CCAccessible.m */,
 				D067297819892001005148AD /* CCLabelTTF+CCAccessible.h */,
 				D067297919892001005148AD /* CCLabelTTF+CCAccessible.m */,
 				D067297A19892001005148AD /* AccessibleCCControlSlider.h */,
 				D067297B19892001005148AD /* AccessibleCCControlSlider.m */,
-				D0F408E11945DCD300737AC8 /* AccessibleCocos2D.h */,
-				D0F408EA19484AA700737AC8 /* CCSwitchableNode.h */,
-				D09740F619755C4E00F1F7EA /* AccessibleLabel.h */,
 				D09740EE19751CBF00F1F7EA /* AccessibleCCLabelTTF.h */,
 				D09740EF19751CBF00F1F7EA /* AccessibleCCLabelTTF.m */,
-				D01357A519701293000B6774 /* AccessibleGLView.h */,
-				D01357A619701293000B6774 /* AccessibleGLView.m */,
-				D01357A819702424000B6774 /* AccessibleSwitchableNode.h */,
-				D01357A919702424000B6774 /* AccessibleSwitchableNode.m */,
 				D0F408EB19488C5300737AC8 /* CCMenuItem+CCSwitchableNode.h */,
 				D0F408EC19488C5300737AC8 /* CCMenuItem+CCSwitchableNode.m */,
-				D0F408F1194ED7CA00737AC8 /* SwitchableindexPath.h */,
-				D0F408F2194ED7F700737AC8 /* SwitchableindexPath.m */,
-				D0F408EE194A9DEE00737AC8 /* UITableViewCell+CCSwitchableNode.h */,
-				D0F408EF194A9DEE00737AC8 /* UITableViewCell+CCSwitchableNode.m */,
 			);
 			name = Accessibility;
 			sourceTree = "<group>";
@@ -1539,10 +1509,8 @@
 				D0291AFD18013F3800BE2ACB /* CCGrid.m in Sources */,
 				D05F84A31830B64F009B7A91 /* cpConstraint.c in Sources */,
 				D0291B3618013F3800BE2ACB /* NSThread+performBlock.m in Sources */,
-				D0B94F8A1801422600BB7236 /* LabelButtonMenuItem.m in Sources */,
 				D0291AF918013F3800BE2ACB /* CCDrawNode.m in Sources */,
 				D0291B0A18013F3800BE2ACB /* CCParticleSystem.m in Sources */,
-				D0F408F3194ED7F700737AC8 /* SwitchableindexPath.m in Sources */,
 				D0291B7418013F3800BE2ACB /* vec2.c in Sources */,
 				D0291B4518013F3800BE2ACB /* CCRemoveFromParentAction.m in Sources */,
 				D0291B0E18013F3800BE2ACB /* CCProgressTimer.m in Sources */,
@@ -1602,14 +1570,12 @@
 				D0291AEA18013F3800BE2ACB /* CCActionInstant.m in Sources */,
 				D0291B3318013F3800BE2ACB /* ccUtils.c in Sources */,
 				D0B9502E18035E3600BB7236 /* MainMenuLayer.m in Sources */,
-				D09740EA1974D84300F1F7EA /* CCCustomSpriteBatchNode.m in Sources */,
 				D0291B0318013F3800BE2ACB /* CCMenuItem.m in Sources */,
 				D067297C19892001005148AD /* CCNode+CCAccessible.m in Sources */,
 				D0291AEE18013F3800BE2ACB /* CCActionProgressTimer.m in Sources */,
 				D05F84B81830B64F009B7A91 /* cpSpaceComponent.c in Sources */,
 				D0291AEB18013F3800BE2ACB /* CCActionInterval.m in Sources */,
 				D0291B3018013F3800BE2ACB /* ccCArray.m in Sources */,
-				D09740F5197559EA00F1F7EA /* CCNode+Util.m in Sources */,
 				D0291B3518013F3800BE2ACB /* CGPointExtension.m in Sources */,
 				D0F4786B18013D8A0089460E /* main.m in Sources */,
 				D0F408ED19488C5300737AC8 /* CCMenuItem+CCSwitchableNode.m in Sources */,
@@ -1618,7 +1584,6 @@
 				D0291AFF18013F3800BE2ACB /* CCLabelBMFont.m in Sources */,
 				D0291B2918013F3800BE2ACB /* CCTouchHandler.m in Sources */,
 				D0291AF018013F3800BE2ACB /* CCActionTween.m in Sources */,
-				D0F408F0194A9DEE00737AC8 /* UITableViewCell+CCSwitchableNode.m in Sources */,
 				D0291B0B18013F3800BE2ACB /* CCParticleSystemQuad.m in Sources */,
 				D05F84B91830B64F009B7A91 /* cpSpaceHash.c in Sources */,
 				D0291B0618013F3800BE2ACB /* CCNode.m in Sources */,
@@ -1654,7 +1619,6 @@
 				D00119D818E011C700B90971 /* CCPhysicsDebugNode.m in Sources */,
 				D0291AF418013F3800BE2ACB /* CCCamera.m in Sources */,
 				D0291B2818013F3800BE2ACB /* CCTouchDispatcher.m in Sources */,
-				D09740F2197556A200F1F7EA /* CCLayer+Util.m in Sources */,
 				D0291B4418013F3800BE2ACB /* CCNodeExtensions.m in Sources */,
 				D0291AE518013F3800BE2ACB /* CCActionCamera.m in Sources */,
 				D0291B1418013F3800BE2ACB /* CCSprite.m in Sources */,

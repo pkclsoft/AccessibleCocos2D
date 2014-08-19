@@ -134,8 +134,7 @@ static const MenuItemDefinition MENU_ITEMS[] = {
         [menu setPosition:CGPointZero];
         [self addChild:menu z:kZMenu tag:kMenu];
         
-        [(AccessibleGLView*)[CCDirector sharedDirector].view addNodes:@[ [self itemInMenuWithTag:kMenu forTag:kEnglishButton],
-                                                                         [self itemInMenuWithTag:kMenu forTag:kSpanishButton]]];
+        [[AccessibleGLView accessibilityView] addNodes:[menu.children getNSArray]];
     }
     
     return self;

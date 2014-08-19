@@ -14,8 +14,13 @@
 
 - (id) initWithNode:(CCNode<CCSwitchableNode>*)node inContainer:(id)container;
 
+// Creates a UIAccessibilityElement that wraps a CCNode that implements the CCSwitchableNode protocol.
+// This is what iOS will interact with in order to get information about the node.
+//
 + (AccessibleSwitchableNode*) accessibleSwitchableWithNode:(CCNode<CCSwitchableNode>*)node inContainer:(id)container;
 
+// The CCNode being wrapped.
+//
 @property (nonatomic, retain) CCNode<CCSwitchableNode> *node;
 
 @end

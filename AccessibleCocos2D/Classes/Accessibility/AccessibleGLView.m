@@ -25,15 +25,6 @@
     return self;
 }
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
-{
-    // Drawing code
-}
-*/
-
 - (AccessibleSwitchableNode*) elementForNode:(CCNode<CCSwitchableNode>*)node {
     AccessibleSwitchableNode *result = nil;
     
@@ -48,7 +39,6 @@
     return result;
 }
 
-
 - (void) addElement:(UIAccessibilityElement*)element {
     [self addElement:element partOfBatch:NO];
 }
@@ -60,7 +50,7 @@
         }
         
         if ([elements containsObject:element] == NO) {
-            NSLog(@"Adding element: %@ with language: %@", element, element.accessibilityLanguage);
+            CCLOG(@"Adding element: %@ with language: %@", element, element.accessibilityLanguage);
             [elements addObject:element];
         }
     }
@@ -76,7 +66,7 @@
 
 - (void) removeElement:(UIAccessibilityElement*)element partOfBatch:(BOOL)batching {
     @synchronized (elements) {
-        NSLog(@"Removing element: %@ with language: %@", element.accessibilityLabel, element.accessibilityLanguage);
+        CCLOG(@"Removing element: %@ with language: %@", element.accessibilityLabel, element.accessibilityLanguage);
         [elements removeObject:element];
     }
     
@@ -165,27 +155,45 @@
     return (AccessibleGLView*)[CCDirector sharedDirector].view;
 }
 
+static BOOL accessibilityContainerAccessedByiOS = NO;
+
++ (BOOL) accessibilityActive {
+    return accessibilityContainerAccessedByiOS;
+}
+
 #pragma mark - UIAccessibilityContainer
 
 -(NSArray *)accessibilityElements{
+    accessibilityContainerAccessedByiOS = YES;
+    
     return elements;
 }
 
 -(BOOL)isAccessibilityElement{
+    accessibilityContainerAccessedByiOS = YES;
+    
     return NO;
 }
 
 -(NSInteger)accessibilityElementCount{
+    accessibilityContainerAccessedByiOS = YES;
+    
     return [self accessibilityElements].count;
 }
+
 -(NSInteger)indexOfAccessibilityElement:(id)element{
-    NSLog(@"indexOfAccessibilityElement: %@", ((UIAccessibilityElement*)element).accessibilityLabel);
+    accessibilityContainerAccessedByiOS = YES;
+    
+    CCLOG(@"indexOfAccessibilityElement: %@", ((UIAccessibilityElement*)element).accessibilityLabel);
 
     return [[self accessibilityElements] indexOfObject:element];
 }
+
 -(id)accessibilityElementAtIndex:(NSInteger)index{
+    accessibilityContainerAccessedByiOS = YES;
+    
     UIAccessibilityElement* result = [[self accessibilityElements] objectAtIndex:index];
-    NSLog(@"accessibilityElementAtIndex: %@", ((UIAccessibilityElement*)result).accessibilityLabel);
+    CCLOG(@"accessibilityElementAtIndex: %@", ((UIAccessibilityElement*)result).accessibilityLabel);
     return result;
 }
 

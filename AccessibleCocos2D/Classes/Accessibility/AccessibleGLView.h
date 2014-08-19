@@ -1,9 +1,7 @@
 //
 //  AccessibleGLView.h
-//  AccessibleCocos2D
 //
 //  Created by Peter Easdown on 11/07/2014.
-//  Copyright (c) 2014 PKCLsoft. All rights reserved.
 //
 
 #import "CCGLView.h"
@@ -50,5 +48,11 @@
 // Returns the singleton instance of this class created at startup and assigned to the CCDirector.
 //
 + (AccessibleGLView*) accessibilityView;
+
+// Returns YES if iOS has at some point prior to this method being called, requested information about
+// the accessiblity container this class represents.  This may be used to indicate that accessibility
+// is currently active (whether for voiceover or for switch control).
+//
++ (BOOL) accessibilityActive;
 
 @end
