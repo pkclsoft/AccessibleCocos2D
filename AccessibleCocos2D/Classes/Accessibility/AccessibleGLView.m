@@ -47,11 +47,11 @@
     @synchronized (elements) {
         if (element == nil) {
             NSLog(@"Adding NULL element!");
-        }
-        
-        if ([elements containsObject:element] == NO) {
-            CCLOG(@"Adding element: %@ with language: %@", element, element.accessibilityLanguage);
-            [elements addObject:element];
+        } else {
+            if ([elements containsObject:element] == NO) {
+                [elements addObject:element];
+                CCLOG(@"Adding element: %@ with language: %@, total: %lu", element, element.accessibilityLanguage, (unsigned long)elements.count);
+            }
         }
     }
     
@@ -66,7 +66,7 @@
 
 - (void) removeElement:(UIAccessibilityElement*)element partOfBatch:(BOOL)batching {
     @synchronized (elements) {
-        CCLOG(@"Removing element: %@ with language: %@", element.accessibilityLabel, element.accessibilityLanguage);
+        CCLOG(@"Removing element: %@ with language: %@, remaining: %lu", element.accessibilityLabel, element.accessibilityLanguage, (unsigned long)elements.count-1);
         [elements removeObject:element];
     }
     
