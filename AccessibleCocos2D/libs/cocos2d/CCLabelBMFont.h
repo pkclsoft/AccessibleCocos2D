@@ -93,28 +93,34 @@ typedef struct _KerningHashElement
  */
 @interface CCBMFontConfiguration : NSObject
 {
+	// Character Set defines the letters that actually exist in the font
+	NSCharacterSet *_characterSet;
+  
 	// atlas name
-	NSString		*atlasName_;
+	NSString		*_atlasName;
     
-    // XXX: Creating a public interface so that the bitmapFontArray[] is accesible
+    // XXX: Creating a public interface so that the bitmapFontArray[] is accessible
 @public
     
 	// BMFont definitions
-	tCCFontDefHashElement	*fontDefDictionary_;
+	tCCFontDefHashElement	*_fontDefDictionary;
     
 	// FNTConfig: Common Height. Should be signed (issue #1343)
-	NSInteger		commonHeight_;
-    NSInteger   base_;
-	NSInteger		ascenderHeight_;
-	NSInteger		xHeight_;
-	NSInteger		capHeight_;
+	NSInteger		_commonHeight;
+    NSInteger       _base;
+	NSInteger		_ascenderHeight;
+	NSInteger		_xHeight;
+	NSInteger		_capHeight;
     
 	// Padding
-	ccBMFontPadding	padding_;
+	ccBMFontPadding	_padding;
     
 	// values for kerning
-	tCCKerningHashElement	*kerningDictionary_;
+	tCCKerningHashElement	*_kerningDictionary;
 }
+
+// Character set
+@property (nonatomic, retain, readonly) NSCharacterSet *characterSet;
 
 // atlasName
 @property (nonatomic, readwrite, retain) NSString *atlasName;
@@ -178,32 +184,36 @@ typedef enum {
 @interface CCLabelBMFont : CCSpriteBatchNode <CCLabelProtocol, CCRGBAProtocol>
 {
 	// string to render
-	NSString		*string_;
+	NSString		*_string;
     
     // name of fntFile
-    NSString        *fntFile_;
+    NSString        *_fntFile;
     
     // initial string without line breaks
-    NSString *initialString_;
+    NSString *_initialString;
     // max width until a line break is added
-    float width_;
+    float _width;
     // alignment of all lines
-    CCTextAlignment alignment_;
-    CCVerticalTextAlignment vAlignment_;
+    CCTextAlignment _alignment;
+    CCVerticalTextAlignment _vAlignment;
     
-	CCBMFontConfiguration	*configuration_;
+	CCBMFontConfiguration	*_configuration;
     
 	// texture RGBA
-	GLubyte		opacity_;
-	ccColor3B	color_;
-	BOOL opacityModifyRGB_;
+	GLubyte		_displayedOpacity, _realOpacity;
+	ccColor3B	_displayedColor, _realColor;
+	BOOL		_cascadeOpacityEnabled, _cascadeColorEnabled;
+	BOOL		_opacityModifyRGB;
 	
 	// offset of the texture atlas
-	CGPoint			imageOffset_;
-    float   lineHeight_;
-    CCLabelBottomDisplay bottomDisplay_;
-    CCLabelTopDisplay topDisplay_;
+	CGPoint			_imageOffset;
+    float   _lineHeight;
+    CCLabelBottomDisplay _bottomDisplay;
+    CCLabelTopDisplay _topDisplay;
 	CCArray *lines;
+
+    // reused char
+	CCSprite	*_reusedChar;
 }
 
 /** Purges the cached data.
@@ -236,7 +246,7 @@ typedef enum {
 +(id) labelWithString:(NSString*)string fntFile:(NSString*)fntFile;
 /** creates a BMFont label with an initial string, the FNT file, width, and alignment option */
 +(id) labelWithString:(NSString*)string fntFile:(NSString*)fntFile width:(float)width alignment:(CCTextAlignment)alignment;
-/** creates a BMFont label with an initial string, the FNT file, width, alignment option and the offset of where the glpyhs start on the .PNG image */
+/** creates a BMFont label with an initial string, the FNT file, width, alignment option and the offset of where the glyphs start on the .PNG image */
 +(id) labelWithString:(NSString*)string fntFile:(NSString*)fntFile width:(float)width alignment:(CCTextAlignment)alignment imageOffset:(CGPoint)offset;
 
 /** init a BMFont label with an initial string and the FNT file */
@@ -269,4 +279,5 @@ CCBMFontConfiguration * FNTConfigLoadFile( NSString *file );
 /** Purges the FNT config cache
  */
 void FNTConfigRemoveCache( void );
+
 

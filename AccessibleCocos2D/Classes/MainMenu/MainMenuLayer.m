@@ -14,7 +14,9 @@
     
     float menuY;
     float menuX;
-    BOOL fileDownloaded;
+    
+    EffectCompletionBlock synthCompletionBlock;
+    AVSpeechUtterance *synthCompletionUtterance;
 }
 
 static MainMenuLayer *sharedInstance_;
@@ -28,10 +30,10 @@ static MainMenuLayer *sharedInstance_;
 }
 
 typedef enum {
-    kTitle,
     kEnglishButton,
     kSpanishButton,
     kMenu,
+    kTitle,
     kSwitchControlLayer
 } MainMenuTag;
 
@@ -72,9 +74,11 @@ static const MenuItemDefinition MENU_ITEMS[] = {
 - (void) handleMenuItemByTag:(int)tag {
     switch (tag) {
         case kEnglishButton:
+            [self speakText:MENU_ITEMS[tag]];
             break;
             
         case kSpanishButton:
+            [self speakText:MENU_ITEMS[tag]];
             break;
             
         default:
@@ -113,8 +117,6 @@ static const MenuItemDefinition MENU_ITEMS[] = {
         
         menuY = MENU_ITEM_TOP;
         menuX = [CocosUtil screenCentre].x;
-        
-        fileDownloaded = NO;
 
         NSMutableArray *items = [NSMutableArray arrayWithCapacity:20];
         CCMenuItemLabel *item = nil;
@@ -139,5 +141,99 @@ static const MenuItemDefinition MENU_ITEMS[] = {
     
     return self;
 }
+
+static AVSpeechSynthesizer *static_synthesizer = nil;
+
+- (void) speakText:(MenuItemDefinition)menuItem {
+    if (static_synthesizer == nil) {
+        static_synthesizer = [[AVSpeechSynthesizer alloc] init];
+    }
+    
+    [self play:@"Please tap on" withCompletionBlock:nil usingLanguageCode:@"en-US" andPostDelay:0.0];
+    [self play:NSLocalizedString(menuItem.name, @"") withCompletionBlock:^{
+        NSLog(@"second half has been spoken");
+    } usingLanguageCode:menuItem.language andPostDelay:0.0];
+}
+
+- (void) play:(NSString*)text withCompletionBlock:(EffectCompletionBlock)completionBlock usingLanguageCode:(NSString*)languageCode andPostDelay:(NSTimeInterval)delay {
+    if (completionBlock != nil) {
+        static_synthesizer.delegate = self;
+    }
+    
+    AVSpeechSynthesisVoice *voice = [AVSpeechSynthesisVoice voiceWithLanguage:languageCode];
+    
+    // If the preferred language has no voice, then choose one that will work for the localization of the app at least.
+    //
+    if (voice == nil) {
+        NSString *pickedVoiceLang = nil;
+        NSString *systemLang = [[NSLocale preferredLanguages] firstObject];
+        
+        // if the system language is english then opt for English
+        if ([systemLang hasPrefix:@"en"] == YES) {
+            pickedVoiceLang = @"en-US";
+            
+            // else if it's spanish, then opt for the real thing.
+        } else if ([systemLang hasPrefix:@"es"] == YES) {
+            pickedVoiceLang = @"es-ES";
+            
+            // else if it's french, then opt for the real thing.
+        } else if ([systemLang hasPrefix:@"fr"] == YES) {
+            pickedVoiceLang = @"fr-FR";
+            
+            // finally, default to english-US
+        } else {
+            pickedVoiceLang = @"en-US";
+        }
+        
+        voice = [AVSpeechSynthesisVoice voiceWithLanguage:pickedVoiceLang];
+    }
+    
+#ifdef DEBUG
+    NSLog(@"speaking: %@ with language: %@", text, voice.language);
+#endif
+    
+    AVSpeechUtterance *utterance = [[AVSpeechUtterance alloc] initWithString:text];// autorelease];
+    utterance.postUtteranceDelay = delay;
+    utterance.voice = voice;
+    
+    if (completionBlock != nil) {
+        synthCompletionUtterance = [utterance retain];
+        synthCompletionBlock = [completionBlock copy];
+    } else {
+    
+    [static_synthesizer speakUtterance:utterance];
+    }
+}
+
+- (void)speechSynthesizer:(AVSpeechSynthesizer *)synthesizer didCancelSpeechUtterance:(AVSpeechUtterance *)utterance {
+    NSLog(@"did cancel speaking: %@", utterance.speechString);
+}
+
+- (void)speechSynthesizer:(AVSpeechSynthesizer *)synthesizer willSpeakRangeOfSpeechString:(NSRange)characterRange utterance:(AVSpeechUtterance *)utterance {
+    NSLog(@"willSpeakRangeOfSpeechString to speak: %@, substring: %@", utterance.speechString, [utterance.speechString substringWithRange:characterRange]);
+}
+
+
+- (void) speechSynthesizer:(AVSpeechSynthesizer *)synthesizer didStartSpeechUtterance:(AVSpeechUtterance *)utterance {
+    NSLog(@"starting to speak: %@", utterance.speechString);
+}
+
+- (void)speechSynthesizer:(AVSpeechSynthesizer *)synthesizer didFinishSpeechUtterance:(AVSpeechUtterance *)utterance {
+    if ((utterance != synthCompletionUtterance) && (synthCompletionUtterance != nil)) {
+        [static_synthesizer speakUtterance:synthCompletionUtterance];
+    } else {
+        if ((synthCompletionBlock != nil) && (utterance == synthCompletionUtterance)) {
+            synthCompletionBlock();
+            [synthCompletionBlock release];
+            synthCompletionBlock = nil;
+            
+            [synthCompletionUtterance release];
+            synthCompletionUtterance = nil;
+            
+            static_synthesizer.delegate = nil;
+        }
+    }
+}
+
 
 @end

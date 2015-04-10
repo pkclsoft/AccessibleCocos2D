@@ -171,6 +171,9 @@
 		D0BE51D5181010D200E1B87E /* iTunesArtwork@2x in Resources */ = {isa = PBXBuildFile; fileRef = D0BE51D4181010D200E1B87E /* iTunesArtwork@2x */; };
 		D0BE51D91810115600E1B87E /* Default-land-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = D0BE51D71810115600E1B87E /* Default-land-ipad.png */; };
 		D0BE51DC181011D300E1B87E /* Default-land-ipad@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D0BE51DB181011D300E1B87E /* Default-land-ipad@2x.png */; };
+		D0C952121AD80B6100882365 /* CCClippingNode.m in Sources */ = {isa = PBXBuildFile; fileRef = D0C9520D1AD80B6100882365 /* CCClippingNode.m */; };
+		D0C952131AD80B6100882365 /* CCFontDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = D0C9520F1AD80B6100882365 /* CCFontDefinition.m */; };
+		D0C952141AD80B6100882365 /* ccFPSImages.m in Sources */ = {isa = PBXBuildFile; fileRef = D0C952111AD80B6100882365 /* ccFPSImages.m */; };
 		D0E523F518CEEFF9005822DF /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D080653B189130FD0009427D /* Localizable.strings */; };
 		D0EC289B18C069CC00BFE9F2 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0EC289A18C069CC00BFE9F2 /* MobileCoreServices.framework */; };
 		D0EC28CE18C7021C00BFE9F2 /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = D0EC28CC18C7021C00BFE9F2 /* Default-Landscape~ipad.png */; };
@@ -593,6 +596,12 @@
 		D0BE51D71810115600E1B87E /* Default-land-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-land-ipad.png"; sourceTree = "<group>"; };
 		D0BE51D81810115600E1B87E /* Default-land-ipad.xcf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Default-land-ipad.xcf"; sourceTree = "<group>"; };
 		D0BE51DB181011D300E1B87E /* Default-land-ipad@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-land-ipad@2x.png"; sourceTree = "<group>"; };
+		D0C9520C1AD80B6100882365 /* CCClippingNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCClippingNode.h; sourceTree = "<group>"; };
+		D0C9520D1AD80B6100882365 /* CCClippingNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCClippingNode.m; sourceTree = "<group>"; };
+		D0C9520E1AD80B6100882365 /* CCFontDefinition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCFontDefinition.h; sourceTree = "<group>"; };
+		D0C9520F1AD80B6100882365 /* CCFontDefinition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCFontDefinition.m; sourceTree = "<group>"; };
+		D0C952101AD80B6100882365 /* ccFPSImages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ccFPSImages.h; sourceTree = "<group>"; };
+		D0C952111AD80B6100882365 /* ccFPSImages.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ccFPSImages.m; sourceTree = "<group>"; };
 		D0EC289A18C069CC00BFE9F2 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		D0EC28CC18C7021C00BFE9F2 /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape~ipad.png"; sourceTree = "<group>"; };
 		D0EC28D018C7025D00BFE9F2 /* Default~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default~ipad.png"; sourceTree = "<group>"; };
@@ -655,12 +664,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0F476D218013D890089460E /* AVFoundation.framework in Frameworks */,
 				D0EC289B18C069CC00BFE9F2 /* MobileCoreServices.framework in Frameworks */,
 				D0BE5144180D18F700E1B87E /* MessageUI.framework in Frameworks */,
 				D0F476CE18013D890089460E /* OpenAL.framework in Frameworks */,
 				D0F476D418013D890089460E /* UIKit.framework in Frameworks */,
 				D0F476CA18013D890089460E /* QuartzCore.framework in Frameworks */,
-				D0F476D218013D890089460E /* AVFoundation.framework in Frameworks */,
 				D0F476D818013D890089460E /* CoreGraphics.framework in Frameworks */,
 				D0F476CC18013D890089460E /* OpenGLES.framework in Frameworks */,
 				D0F476D618013D890089460E /* Foundation.framework in Frameworks */,
@@ -674,6 +683,12 @@
 		D029197D18013F3800BE2ACB /* cocos2d */ = {
 			isa = PBXGroup;
 			children = (
+				D0C9520C1AD80B6100882365 /* CCClippingNode.h */,
+				D0C9520D1AD80B6100882365 /* CCClippingNode.m */,
+				D0C9520E1AD80B6100882365 /* CCFontDefinition.h */,
+				D0C9520F1AD80B6100882365 /* CCFontDefinition.m */,
+				D0C952101AD80B6100882365 /* ccFPSImages.h */,
+				D0C952111AD80B6100882365 /* ccFPSImages.m */,
 				D029197E18013F3800BE2ACB /* CCAction.h */,
 				D029197F18013F3800BE2ACB /* CCAction.m */,
 				D029198018013F3800BE2ACB /* CCActionCamera.h */,
@@ -1541,6 +1556,7 @@
 				D05F84B71830B64F009B7A91 /* cpSpace.c in Sources */,
 				D0291B2618013F3800BE2ACB /* CCES2Renderer.m in Sources */,
 				D0291B1818013F3800BE2ACB /* CCTexture2D.m in Sources */,
+				D0C952141AD80B6100882365 /* ccFPSImages.m in Sources */,
 				D05F84A51830B64F009B7A91 /* cpDampedSpring.c in Sources */,
 				D0291B7118013F3800BE2ACB /* quaternion.c in Sources */,
 				D05F84AC1830B64F009B7A91 /* cpSimpleMotor.c in Sources */,
@@ -1561,6 +1577,7 @@
 				D05F84AB1830B64F009B7A91 /* cpRotaryLimitJoint.c in Sources */,
 				D0291AF218013F3800BE2ACB /* CCAnimationCache.m in Sources */,
 				D0B94F871801422600BB7236 /* CocosUtil.m in Sources */,
+				D0C952121AD80B6100882365 /* CCClippingNode.m in Sources */,
 				D0291B7818013F3800BE2ACB /* CDXPropertyModifierAction.m in Sources */,
 				D0291B1218013F3800BE2ACB /* CCShaderCache.m in Sources */,
 				D0291B0818013F3800BE2ACB /* CCParticleBatchNode.m in Sources */,
@@ -1592,6 +1609,7 @@
 				D05F84B01830B64F009B7A91 /* cpBB.c in Sources */,
 				D0291B0D18013F3800BE2ACB /* CCPhysicsSprite.mm in Sources */,
 				D01357AA19702424000B6774 /* AccessibleSwitchableNode.m in Sources */,
+				D0C952131AD80B6100882365 /* CCFontDefinition.m in Sources */,
 				D05F84B21830B64F009B7A91 /* cpBody.c in Sources */,
 				D05F84A11830B64F009B7A91 /* chipmunk.c in Sources */,
 				D05F84BB1830B64F009B7A91 /* cpSpaceStep.c in Sources */,

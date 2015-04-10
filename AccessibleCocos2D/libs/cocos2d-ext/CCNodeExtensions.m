@@ -16,7 +16,7 @@
 
 -(BOOL) containsPoint:(CGPoint)point
 {
-	CGRect bbox = CGRectMake(0, 0, contentSize_.width, contentSize_.height);
+	CGRect bbox = CGRectMake(0, 0, _contentSize.width, _contentSize.height);
 	CGPoint locationInNodeSpace = [self convertToNodeSpace:point];
 	return CGRectContainsPoint(bbox, locationInNodeSpace);
 }

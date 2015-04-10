@@ -215,8 +215,8 @@ kmMat4* const kmMat4Transpose(kmMat4* pOut, const kmMat4* pIn)
  */
 kmMat4* const kmMat4Multiply(kmMat4* pOut, const kmMat4* pM1, const kmMat4* pM2)
 {
-#if defined(__ARM_NEON__)
-
+#if defined(__ARM_NEON__NOT_USED)
+    
 	float mat[16];
 
 	// Invert column-order with row-order

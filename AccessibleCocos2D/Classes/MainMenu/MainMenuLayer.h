@@ -6,9 +6,12 @@
 //  This is a very simple screen with a label and two text buttons that are accessible.
 
 #import <Foundation/Foundation.h>
+#import <AVFoundation/AVFoundation.h>
 
-@interface MainMenuLayer : CCLayer
+@interface MainMenuLayer : CCLayer <AVSpeechSynthesizerDelegate>
 
 + (MainMenuLayer*) sharedInstance;
+
+typedef void (^EffectCompletionBlock)(void);
 
 @end

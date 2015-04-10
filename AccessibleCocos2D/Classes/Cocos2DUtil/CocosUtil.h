@@ -19,7 +19,7 @@
 #define IPHONE_RETINA_WIDTH 960.0f
 #define IPHONE_HEIGHT 320.0f
 #define IPHONE_RETINA_HEIGHT 640.0f
-#define IPHONE5_WIDTH 568.0f
+#define IPHONE5_WIDTH 1136.0f
 
 #define NORMAL_BLEND_MODE ccBlendFuncMake(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA)
 #define ADDITIVE_BLEND_MODE ccBlendFuncMake(GL_ONE, GL_ONE)
@@ -29,16 +29,30 @@
 #define MULTIPLICATIVE_BLEND_MODE ccBlendFuncMake(GL_DST_COLOR, GL_ONE_MINUS_SRC_ALPHA)
 #define DODGE_BLEND_MODE ccBlendFuncMake(GL_ONE_MINUS_SRC_ALPHA, GL_ONE)
 
-#define IS_IPAD ((UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad))
-#define IS_IPHONE ((UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone))
-#define IS_IPHONE_5 ((IS_IPHONE && [CocosUtil screenWidth] == IPHONE5_WIDTH))
-#define IS_IPHONE_4 ((IS_IPHONE && [CocosUtil screenWidth] == IPHONE_WIDTH))
+#define IS_IPAD (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+#define IS_IPHONE (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
+#define IS_IPHONE_5 (IS_IPHONE && (([CocosUtil runningDevice] == kCCDeviceiPhone5) || ([CocosUtil runningDevice] == kCCDeviceiPhone5RetinaDisplay)))
+#define IS_IPHONE_6 (IS_IPHONE && [CocosUtil runningDevice] == kCCDeviceiPhone6)
+#define IS_IPHONE_6PLUS (IS_IPHONE && [CocosUtil runningDevice] == kCCDeviceiPhoneRetinaHDDisplay)
+#define IS_WIDESCREEN (IS_IPHONE_5 || IS_IPHONE_6 || IS_IPHONE_6PLUS)
+#define IS_IPHONE_4 (IS_IPHONE && (([CocosUtil runningDevice] == kCCDeviceiPhoneRetinaDisplay) || ([CocosUtil runningDevice] == kCCDeviceiPhone)))
+
+#define IS_LANDSCAPE ([CocosUtil orientation] == koLandscape)
+#define IS_PORTRAIT ([CocosUtil orientation] == koPortrait)
+
+#define ROTATION_DURATION 0.300000012
 
 @interface CocosUtil : NSObject {
 
 }
 
+typedef enum {
+    koLandscape,
+    koPortrait
+} GameOrientation;
+
 + (void) initStaticConstants;
++ (void) initStaticConstantsWithOrientation:(UIDeviceOrientation)newOrientation;
 
 + (CGPoint) centerOfRect:(CGRect)rect;
 + (CGPoint) centerWith:(float)x andY:(float)y andWidth:(float)width andHeight:(float)height;
@@ -47,20 +61,19 @@
 + (float) screenWidth;
 + (CGPoint) screenCentre;
 + (float) screenFactor;
++ (GameOrientation) orientation;
++ (NSInteger) runningDevice;
 
 + (float) scaleForWidth:(float)forWidth andSprite:(CCSprite*)sprite;
 + (float) scaleForHeight:(float)forHeight andSprite:(CCSprite*)sprite;
 + (float) scaledWidth:(float)forWidth;
 + (float) scaledHeight:(float)forHeight;
-+ (float) scaledXCoordinate:(float)input letterBoxed:(BOOL)letterBoxed;
+
+
 
 + (NSString*) xibForDeviceForName:(NSString*)baseName;
 + (NSString*) imageForDeviceForName:(NSString*)baseName;
 + (NSString*) plistForDeviceForName:(NSString*)baseName;
-
-// Returns IPHONE_DEVICE for iPhone/iPod or IPAD_DEVICE for iPad
-//
-+ (int) deviceType;
 
 // Returns YES if the os is iOS6 or later.
 //
@@ -69,6 +82,7 @@
 // Returns YES if the os is iOS6 or later.
 //
 + (BOOL) isiOS8orLater;
++ (CGPoint) versionIndependentPointFor:(CGPoint)point;
 
 + (CCSprite*) spriteWithOverlaidImages:(UIImage*)inputImage
                                overlay:(UIImage*)overlay 

@@ -9,8 +9,8 @@
 #import "ccMoreMacros.h"
 //#import "KKInput.h"
 
-#import "FixCategoryBug.h"
-FIX_CATEGORY_BUG(CCDirector)
+//#import "FixCategoryBug.h"
+//FIX_CATEGORY_BUG(CCDirector)
 
 static NSUInteger CCDirectorExtensionFrameCounter = 0;
 
@@ -64,7 +64,7 @@ static NSUInteger CCDirectorExtensionFrameCounter = 0;
 
 -(BOOL) isSceneStackEmpty
 {
-	return ([scenesStack_ count] == 0);
+	return ([_scenesStack count] == 0);
 }
 
 -(BOOL) currentPlatformIsIOS

@@ -15,28 +15,7 @@
 
 @implementation CocosUtil
 
-static int cachedDeviceType_ = IPHONE_DEVICE;
-static bool initialized_ = NO;
-
-+ (int) deviceType {
-    if (initialized_ == NO) {
-        BOOL iPad = NO;
-    
-#ifdef UI_USER_INTERFACE_IDIOM
-        iPad = (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad);
-#endif
-    
-        if (iPad) {
-            cachedDeviceType_ = IPAD_DEVICE;
-        } else {
-            cachedDeviceType_ = IPHONE_DEVICE;
-        }
-        
-        initialized_ = YES;
-    }
-    
-    return cachedDeviceType_;
-}
+static NSInteger cachedDeviceType_ = kCCDeviceiPhone;
 
 + (BOOL) isiOS6orLater {
     NSString *reqSysVer = @"6.0";
@@ -63,9 +42,31 @@ static bool initialized_ = NO;
 }
 
 + (void) initStaticConstants {
+    [CocosUtil initStaticConstantsWithOrientation:[UIDevice currentDevice].orientation];
+}
+
++ (void) initStaticConstantsWithOrientation:(UIDeviceOrientation)newOrientation {
+    switch(newOrientation)
+    {
+        case UIDeviceOrientationPortrait:
+            //case UIDeviceOrientationPortraitUpsideDown:
+            cocosutil_orientation_ = koPortrait;
+            /* start special animation */
+            break;
+            
+        case UIDeviceOrientationLandscapeLeft:
+        case UIDeviceOrientationLandscapeRight:
+            cocosutil_orientation_ = koLandscape;
+            break;
+            
+        default:
+            cocosutil_orientation_ = koLandscape;
+            break;
+    };
+    
     // Swap the width and height for landscape mode
     //
-    if ([CocosUtil isiOS8orLater] == YES) {
+    if (([CocosUtil isiOS8orLater] == YES) || (cocosutil_orientation_ == koPortrait)) {
         cocosutil_screenRect_.size.width = [[UIScreen mainScreen] bounds].size.width;
         cocosutil_screenRect_.size.height = [[UIScreen mainScreen] bounds].size.height;
     } else {
@@ -74,8 +75,23 @@ static bool initialized_ = NO;
     }
     
     cocosutil_screenCentre_ = CGPointMake(cocosutil_screenRect_.size.width / 2.0f, cocosutil_screenRect_.size.height / 2.0f);
+    
+    cachedDeviceType_ = [[CCConfiguration sharedConfiguration] runningDevice];
 }
 
++ (CGPoint) versionIndependentPointFor:(CGPoint)point {
+    UIInterfaceOrientation orientation = [[UIApplication sharedApplication] statusBarOrientation];
+
+    if ([CocosUtil isiOS8orLater] == YES) {
+        return CGPointMake(point.x, cocosutil_screenRect_.size.height - point.y);
+    } else if (orientation == UIDeviceOrientationLandscapeLeft) {
+        return CGPointMake(point.y, point.x);
+    } else if (orientation == UIDeviceOrientationLandscapeRight) {
+        return CGPointMake(cocosutil_screenRect_.size.width - point.y, cocosutil_screenRect_.size.height - point.x);
+    } else {
+        return CGPointMake(point.x, cocosutil_screenRect_.size.height - point.y);
+    }
+}
 
 + (CGPoint) centerOfRect:(CGRect)rect {
 	return CGPointMake(rect.origin.x + (rect.size.width / 2.0f), rect.origin.y + (rect.size.height / 2.0f));
@@ -103,6 +119,16 @@ static CGPoint cocosutil_screenCentre_;
 
 + (CGPoint) screenCentre {
     return cocosutil_screenCentre_;
+}
+
+static GameOrientation cocosutil_orientation_;
+
++ (GameOrientation) orientation {
+    return cocosutil_orientation_;
+}
+
++ (NSInteger) runningDevice {
+    return cachedDeviceType_;
 }
 
 + (NSString*) xibForDeviceForName:(NSString*)baseName {
@@ -241,9 +267,9 @@ static CGPoint cocosutil_screenCentre_;
 + (float) scaledXCoordinate:(float)input letterBoxed:(BOOL)letterBoxed {
     if (letterBoxed == YES) {
         float adjustedInput = (IS_IPHONE_5) ? (input + ((IPHONE5_WIDTH - IPHONE_WIDTH) / 2.0f)) : input;
-        return ([CocosUtil deviceType] == IPHONE_DEVICE) ? adjustedInput : [CocosUtil scaledWidth:input];
+        return IS_IPHONE ? adjustedInput : [CocosUtil scaledWidth:input];
     } else {
-        return ([CocosUtil deviceType] == IPHONE_DEVICE) ? input : [CocosUtil scaledWidth:input];
+        return IS_IPHONE ? input : [CocosUtil scaledWidth:input];
     }
 }
 
