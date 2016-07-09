@@ -10,6 +10,7 @@
 		D00119D818E011C700B90971 /* CCPhysicsDebugNode.m in Sources */ = {isa = PBXBuildFile; fileRef = D02919D118013F3800BE2ACB /* CCPhysicsDebugNode.m */; };
 		D01357A719701293000B6774 /* AccessibleGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = D01357A619701293000B6774 /* AccessibleGLView.m */; };
 		D01357AA19702424000B6774 /* AccessibleSwitchableNode.m in Sources */ = {isa = PBXBuildFile; fileRef = D01357A919702424000B6774 /* AccessibleSwitchableNode.m */; };
+		D01D8D121D30821800016B8F /* License.txt in Resources */ = {isa = PBXBuildFile; fileRef = D01D8D111D30821800016B8F /* License.txt */; };
 		D0291AE418013F3800BE2ACB /* CCAction.m in Sources */ = {isa = PBXBuildFile; fileRef = D029197F18013F3800BE2ACB /* CCAction.m */; };
 		D0291AE518013F3800BE2ACB /* CCActionCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = D029198118013F3800BE2ACB /* CCActionCamera.m */; };
 		D0291AE618013F3800BE2ACB /* CCActionCatmullRom.m in Sources */ = {isa = PBXBuildFile; fileRef = D029198318013F3800BE2ACB /* CCActionCatmullRom.m */; };
@@ -233,6 +234,7 @@
 		D01357A619701293000B6774 /* AccessibleGLView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AccessibleGLView.m; path = Classes/Accessibility/AccessibleGLView.m; sourceTree = "<group>"; };
 		D01357A819702424000B6774 /* AccessibleSwitchableNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AccessibleSwitchableNode.h; path = Classes/Accessibility/AccessibleSwitchableNode.h; sourceTree = "<group>"; };
 		D01357A919702424000B6774 /* AccessibleSwitchableNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AccessibleSwitchableNode.m; path = Classes/Accessibility/AccessibleSwitchableNode.m; sourceTree = "<group>"; };
+		D01D8D111D30821800016B8F /* License.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = License.txt; sourceTree = "<group>"; };
 		D029197E18013F3800BE2ACB /* CCAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCAction.h; sourceTree = "<group>"; };
 		D029197F18013F3800BE2ACB /* CCAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCAction.m; sourceTree = "<group>"; };
 		D029198018013F3800BE2ACB /* CCActionCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCActionCamera.h; sourceTree = "<group>"; };
@@ -1285,6 +1287,7 @@
 		D0F476D918013D890089460E /* AccessibleCocos2D */ = {
 			isa = PBXGroup;
 			children = (
+				D01D8D111D30821800016B8F /* License.txt */,
 				D0291B8718013FBF00BE2ACB /* AppDelegate.h */,
 				D0291B8818013FBF00BE2ACB /* AppDelegate.m */,
 				D0291B8918013FBF00BE2ACB /* MyRootController.h */,
@@ -1456,6 +1459,7 @@
 				D0F4770C18013D890089460E /* Position_uColor.fsh in Resources */,
 				D0BE51CA1810100100E1B87E /* Icon-76@2x.png in Resources */,
 				D0F4772218013D890089460E /* PositionTextureColor.vsh in Resources */,
+				D01D8D121D30821800016B8F /* License.txt in Resources */,
 				D0F476EC18013D890089460E /* Icon@2x.png in Resources */,
 				D0F4772618013D890089460E /* Twist.vsh in Resources */,
 				D0291B8618013F6300BE2ACB /* fps_images-ipadhd.png in Resources */,
